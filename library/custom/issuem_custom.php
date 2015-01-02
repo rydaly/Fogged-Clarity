@@ -343,7 +343,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
           // otherwise, define a random default image
           if(empty($first_img)) {
             $theme_root = get_theme_root();
-            $imgdir = '/some-like-it-neat/images/default_post_imgs/';
+            $imgdir = '/fogged-clarity/images/default_post_imgs/';
             $file_path = $theme_root . $imgdir;
             $imgs = glob($file_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
             $first_img = $imgs[array_rand($imgs)];
@@ -689,7 +689,8 @@ if ( !function_exists( 'do_custom_issuem_archives' ) ) {
       }
       
       if ( 0 == $issuem_settings['page_for_articles'] )
-        $article_page = get_bloginfo( 'wpurl' ) . '/' . apply_filters( 'issuem_page_for_articles', 'article/' );
+        // $article_page = get_bloginfo( 'wpurl' ) . '/' . apply_filters( 'issuem_page_for_articles', 'article/' );
+        $article_page = site_url() . '/' . apply_filters( 'issuem_page_for_articles', 'article/' );
       else
         $article_page = get_page_link( $issuem_settings['page_for_articles'] );
     

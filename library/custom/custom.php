@@ -5,7 +5,7 @@
  */
 
 function fc_typekit() {
-  // TODO :: add production typekit link here 
+  // TODO :: add production typekit link here
   wp_enqueue_script( 'fc_typekit', '//use.typekit.net/yzy0zix.js'); 
 }
 add_action( 'wp_enqueue_scripts', 'fc_typekit' );
@@ -86,7 +86,7 @@ function fc_header_top() { ?>
   <header class="top-bar">
     <div class="top-bar-wrapper">
       <a class="bar-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>">
-        <img src="<?php get_template_directory_uri(); ?>/wp-content/themes/some-like-it-neat/images/fc_logo_sm.png" width="55" height="55" alt="fc logo">
+        <img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo_sm.png" width="55" height="55" alt="fc logo">
         <p class="logo-copy"><?php bloginfo( 'name' ); ?></p>
       </a>
       <!-- <i class="fa fa-list-ul"></i> -->
@@ -103,7 +103,7 @@ function fc_header_top() { ?>
     if( is_front_page() || get_current_type() === "tax" ) { ?>
       <div class="hero hero-main" data-speed="1.6" data-type="scroll">
         <div class="hero-inner">
-          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/some-like-it-neat/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
+          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
           <div class="hero-copy">
             <h1 class="blog-name"><?php bloginfo( 'name' ); ?></h1>
               <hr class="divider">
@@ -115,7 +115,7 @@ function fc_header_top() { ?>
     } else { ?>
       <div class="hero hero-main hero-sm" data-speed="1.6" data-type="scroll">
         <div class="hero-inner">
-          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/some-like-it-neat/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
+          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
         </div>
       </div>
   <?php
@@ -396,7 +396,8 @@ add_action( 'widgets_init', 'fc_widgets_init' );
 
 // custom login page
 function custom_login_css() {
-  echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/library/assets/css/custom-login.min.css" />';
+  // echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/library/assets/css/custom-login.min.css" />';
+  echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri() . '/library/assets/css/custom-login.min.css" />';
 }
 add_action('login_head', 'custom_login_css');
 
