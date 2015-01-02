@@ -1,0 +1,414 @@
+/* INCLUDES THE LOGO HEADER, IMAGE ROTATOR, CATEGORY COLOR BAR */
+
+$header-module-height: 350px;
+
+/* 
+		Category color bar
+ */
+.fc-cat-color {
+	height: 6px;
+	&.visual-arts, &.visual-art, &.art {
+		@include fc_cat_back_color($fc-art-color);
+	}
+  &.reviews {
+		@include fc_cat_back_color($fc-review-color);
+  }
+  &.poetry {
+		@include fc_cat_back_color($fc-poetry-color);
+  }
+  &.short-fiction {
+		@include fc_cat_back_color($fc-fiction-color);
+  }
+  &.featured-album, &.featured-album-2, &.fogged-clarity-sessions {
+		@include fc_cat_back_color($fc-music-color);
+  }
+  &.interviews {
+		@include fc_cat_back_color($fc-interview-color);
+  }
+  &.nonfiction, &.nonfiction-2, &.polemics {
+		@include fc_cat_back_color($fc-nonfiction-color);
+  }
+}
+
+/* 
+    Logo and issue name hero
+ */
+.hero-main {
+  $hero-color: $medium-gray;
+  height: 350px;
+  .hero-logo img {
+  	width: 156px;
+  	height: 156px;
+    margin-top: 1.8em;
+  }
+  .hero-inner {
+    @include outer-container;
+    @include clearfix;
+    margin: auto;
+    text-align: center;
+    color: $hero-color;
+    .hero-copy {
+      h1 {
+        font-size: 1.6em;
+        margin-top: .2em;
+        margin-bottom: .2em;
+        font-family: $georgia;
+        text-transform: none;
+        font-weight: 100;
+        @include media($sm) {
+          font-size: 1.6em;
+        }
+        @include media($smbg) {
+          font-size: 2.2em;
+        }
+        @include media($md) {
+          font-size: 2.5em;
+        }
+        @include media($hg) {
+          font-size: 3em;
+        }
+      }
+      p {
+        font-family: $sans-serif;
+        font-size: 1.5em;
+        color: $medium-gray;
+        margin: auto;
+        margin-top: .1em;
+        font-weight: 400;
+        line-height: 1.4em;
+        @include media($md) {
+          font-size: 1.5em;
+          max-width: 40%;
+        }
+      }
+    }
+  }
+}
+
+.hero-sm {
+	height: 250px;
+	.hero-logo img {
+		margin-top: 3.2em;
+	}
+}
+
+/* 
+    Featured image rotator hero
+ */
+
+.hero-carousel {
+  $hero-color: white;
+  padding-bottom: 4em;
+  overflow: hidden;
+
+  // prevent document re-flow
+  @include media($sm) { // < 768
+  	min-height: 293px;
+  }
+  // @include media($md) { // >= 768
+  // 	height: 400px;
+  // }
+  @include media($hg) { // >= 1140
+  	min-height: 464px;
+  }
+
+  /* Customize issuem flex slider */
+  #issuem-featured-article-slideshowholder {
+    .flex-viewport {
+      max-height: 400px;
+    }
+    .issuem-flexslider {
+      @include background(url($bg-image) top left repeat);
+    	.slides img {
+	      @include fill-parent;
+  			// max-height: $header-module-height;
+	      min-width: 640px;
+	    }
+	  	// prevent document re-flow
+	  	@include media($sm) { // < 768
+	  		min-height: 229px;
+		  }
+		  // @include media($md) { // >= 768
+		  // 	height: 335px;
+		  // }
+		  @include media($hg) { // >= 1140
+		  	min-height: 400px;
+		  }
+	  }
+    .flex-direction-nav a {
+      width: 23px;
+      height: 40px;
+      margin: -20px 0 0;
+      display: block;
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      cursor: pointer;
+      text-indent: -9999px;
+      opacity: 0;
+      @include filter(blur(10px));
+      @include transition(all $default-anim-time ease-in-out);
+    }
+    .flex-direction-nav a {
+    	background: none;
+    }
+    .flex-direction-nav .flex-next {
+      background: url(images/nav_right.png) no-repeat 0 0;
+      background-position: 100% 0;
+      right: -50px;
+      text-align: left;
+    }
+    .flex-direction-nav .flex-prev {
+      background: url(images/nav_left.png) no-repeat 0 0;
+      left: -50px;
+    }
+    .issuem-flexslider:hover {
+    	.flex-next {
+	      @include filter(blur(0px));
+	      opacity: 1;
+	      right: 14px;
+    	}
+    	.flex-prev {
+	      @include filter(blur(0px));
+	      opacity: 1;
+	      left: 14px;
+    	}
+    	// .flex-caption {
+    	// 	opacity: 1;
+    	// }
+    }
+    .flex-control-paging {
+    	bottom: -40px;
+    	padding-top: 16px;
+	    li a {
+	      width: 18px;
+	      height: 18px;
+	      background: lighten($medium-gray, 30%);
+	      box-shadow: none;
+	      @include transition(all $default-anim-time ease-in-out);
+	      &.flex-active, &:hover {
+	        opacity: 0.85;
+	        background: $base-accent-color;
+	        @include transition(all $default-anim-time ease-in-out);
+	      }
+	    }
+	  }
+    .flex-caption {
+      background: transparent;
+      top: 20%;
+      width: inherit !important;
+      line-height: 2em;
+      padding: 0 4em;
+      opacity: 0.9;
+
+      a {
+        color: white;
+      }
+
+      &.flex-center {
+      	.featured_slider_cat {
+      		@include clearfix;
+      	}
+        .featured_slider_title {
+        	display: block;
+        }
+        .featured_slider_cta {
+          margin: 0 auto;
+        }
+        text-align: center;
+      }
+      &.flex-left {
+        .featured_slider_cta {
+        	margin-left: 3px;
+        }
+        .featured_slider_title {
+        	display: block;
+        }
+        .featured_slider_cat {
+        	@include clearfix;
+        	margin-left: 1px;
+        }
+        text-align: left;
+      }
+      &.flex-right {
+        .featured_slider_cta {
+          float: right;
+        	margin-right: 3px;
+        }
+        .featured_slider_title {
+        	display: block;
+        }
+        .featured_slider_cat {
+        	float: right;
+        	clear: both;
+        	margin-right: 1px;
+        }
+        text-align: right;
+      }
+      &.flex-light {
+      	span {
+      		color: white;
+      	}
+      	.featured_slider_cta {
+        	border: 3px solid white;
+      	}
+      }
+      &.flex-dark {
+      	span {
+      		color: $dark-gray;
+      	}
+      	.featured_slider_cta {
+        	border: 3px solid $dark-gray;
+      	}
+      }
+      span.visual-arts {
+      	background-color: desaturate($fc-art-color, 10);
+      }
+      span.reviews {
+      	background-color: desaturate($fc-review-color, 10);
+      }
+      span.poetry {
+      	background-color: desaturate($fc-poetry-color, 10);
+      }
+      span.short-fiction {
+      	background-color: desaturate($fc-fiction-color, 10);
+      }
+      span.featured-album, span.featured-album-2, span.fogged-clarity-sessions {
+      	background-color: desaturate($fc-music-color, 10);
+      }
+      span.interviews {
+      	background-color: desaturate($fc-interview-color, 10);
+      }
+      span.nonfiction, span.nonfiction-2, span.polemics {
+      	background-color: desaturate($fc-nonfiction-color, 10);
+      }
+
+      .featured_slider_cat, .featured_slider_title, .featured_slider_teaser, .featured_slider_byline, .featured_slider_cta {
+        display: block;
+        clear: both;
+      }
+      .featured_slider_cat {
+      	font-family: $sans-serif;
+      	font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        margin-bottom: 0.3em;
+        display: inline-block;
+        padding: 2px 4px;
+
+	      @include media($medium-screen) {
+	      	font-size: 0.8em;
+	      }
+	      @include media($md) {
+	      	font-size: 0.9em;
+	      }
+        @include media($large-screen) {
+        	font-size: 1em;
+        }
+        @include media($xl-screen) {
+        	font-size: 1.1em;
+        }
+        @include media($hg) {
+        	font-size: 1.2em;
+        }
+      }
+      .featured_slider_title {
+        font-size: 2em;
+        line-height: 0.9em;
+        font-family: $sans-serif;
+        text-transform: none;
+        font-weight: 400;
+        display: inline-block;
+	      
+	      @include media($medium-screen) {
+	      	font-size: 2.2em;
+	      }
+	      @include media($md) {
+	      	font-size: 2.5em;
+        	font-weight: 300;
+	      }
+        @include media($large-screen) {
+        	font-size: 3em;
+        }
+        @include media($xl-screen) {
+        	font-size: 3.5em;
+        }
+        @include media($hg) {
+        	font-size: 4em;
+        }
+      }
+      .featured_slider_teaser {
+      	font-family: $serif;
+      	font-style: italic;
+      	font-weight: 500;
+      	font-size: 1em;
+      	line-height: 1em;
+				margin-top: 0.5em;
+        margin-bottom: 0.95em;
+	      
+	      @include media($medium-screen) {
+	      	font-size: 1.1em;
+	      }
+	      @include media($md) {
+	      	font-size: 1.2em;
+	      }
+        @include media($large-screen) {
+        	font-size: 1.3em;
+        }
+        @include media($xl-screen) {
+        	font-size: 1.4em;
+        }
+        @include media($hg) {
+        	font-size: 1.5em;
+        }
+      }
+
+      .featured_slider_cta {
+      	font-family: $sans-serif;
+      	font-size: 1em;
+      	font-weight: 500;
+        width: 100px;
+        height: 36px;
+        line-height: 18px;
+        padding: 5px;
+        text-align: center;
+        color: white;
+        display: none;
+
+        @include media($medium-screen) {
+	      	display: block;
+	      }
+
+        @include transition(background $default-anim-time ease-in-out);
+        
+        &:hover {
+        	// opacity: 0.85;
+          background: $base-accent-color;
+          @include transition(background $default-anim-time ease-in-out);
+        }
+        &.visual-arts-cta:hover {
+          background: desaturate($fc-art-color, 10);
+        }
+        &.reviews-cta:hover {
+          background: desaturate($fc-review-color, 10);
+        }
+        &.poetry-cta:hover {
+          background: desaturate($fc-poetry-color, 10);
+        }
+        &.short-fiction-cta:hover {
+          background: desaturate($fc-fiction-color, 10);
+        }
+        &.interviews-cta:hover {
+          background: desaturate($fc-interview-color, 10);
+        }
+        &.fogged-clarity-sessions-cta:hover, &.featured-album-cta:hover, &.featured-album-2-cta:hover {
+          background: desaturate($fc-music-color, 10);
+        }
+        &.nonfiction-cta:hover, &.nonfiction-2-cta:hover, &.polemics-cta:hover {
+          background: desaturate($fc-nonfiction-color, 10);
+        }
+      }
+    }
+  }
+}

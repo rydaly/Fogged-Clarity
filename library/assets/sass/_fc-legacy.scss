@@ -1,0 +1,38 @@
+/* Legacy styles for Fogged Clarity
+ * These styles will ensure old content looks ok
+ */
+
+.center {
+  text-align: center;
+}
+
+// slideshow pro flash player
+object[type="application/x-shockwave-flash"] {
+  display: block;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include media($sm) {
+    height: 250px;
+  }
+  @include media($medium-screen) {
+    height: 350px;
+  }
+  @include media($md) {
+    height: 400px;
+  }
+  @include media($large-screen) {
+    height: 550px;
+  }
+  @include media($hg) {
+    height: 600px;   
+  }
+}
+
+#fcPlayer object {
+  width: 610px !important;
+  height: 335px !important;
+  margin: 15px auto 25px auto;
+}

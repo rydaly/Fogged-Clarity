@@ -1,0 +1,103 @@
+/* =Typographical Mixins/Functions
+-------------------------------------------------------------- */
+
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+/* =Genericons and Dashicons
+-------------------------------------------------------------- */
+@mixin dashicons {
+	color: $icon-color;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 16px/1 'Dashicons';
+	vertical-align: middle;
+}
+
+@mixin genericons {
+	color: $icon-color;
+	display: inline-block;
+	-webkit-font-smoothing: antialiased;
+	font: normal 16px/1 'Genericons';
+	vertical-align: middle;
+}
+
+/* =Typography
+-------------------------------------------------------------- */
+
+body, p {
+	@include fontSize(18px);
+	line-height: 32px;
+	font-weight: 500;
+	color: $dark-gray;
+}
+h1, h2, h3, h4, h5, h6 {
+	@include clearfix;
+	clear: both;
+	float: none;
+	line-height: 1.25em;
+	margin-bottom: 20px;
+	font-family: $sans-serif;
+	font-weight: 300;
+	color: darken($medium-gray, 5);
+	text-align: center;
+
+	a, a:visited {
+		text-decoration: none;
+	}
+}
+h1 {
+	@include fontSize(75px);
+}
+h2 {
+	@include fontSize(50px);
+}
+h3 {
+	@include fontSize(35px);
+}
+h4 {
+	@include fontSize(24px);
+}
+h5 {
+	@include fontSize(20px);
+}
+h6 {
+	@include fontSize(18px);
+}
+blockquote {
+	background-color: #f9f9f9;
+	border-left: solid 5px $primary-color;
+	font-style: italic;
+	padding: 20px;
+}
+cite {
+	font-style: italic;
+}
+a, a:visited {
+	@include transition (all 0.1 ease-in-out);
+	color: #666;
+	text-decoration: none;
+
+	&:hover {
+		@include transition (all 0.1 ease-in-out);
+		color: $fc-green;
+	}
+}
+ul {
+	@extend %default-ul; // Adds browser default spacing back
+}
+ol {
+	@extend %default-ol; // Adds browser default spacing back
+}
+#primary,
+#secondary {
+	font-family: $content;
+}
+

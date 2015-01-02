@@ -1,0 +1,54 @@
+/*
+Theme Name: Fogged Clarity
+Theme URI: https://github.com/digisavvy/some-like-it-neat
+Author: Ryan Daly
+Author URI: http://rydaly.com
+Description: A theme built on Some Like it Neat using _S, Bourbon and Neat (https://github.com/digisavvy/some-like-it-neat http://underscores.me, http://bourbon.io, http://neat.bourbon.io)
+Version: 1.0
+License: GNU General Public License
+License URI: license.txt
+Text Domain: digistarter
+Domain Path: /languages/
+Tags: white, light, one-column, two-columns, right-sidebar, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, sticky-post, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Fogged Clarity is based on Some Like it Neat https://github.com/digisavvy/some-like-it-neat which is based on Underscores http://underscores.me/, (C) 2012-2013 Automattic, Inc.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of
+Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
+and Blueprint http://www.blueprintcss.org/
+*/
+
+/* Import Bourbon and Neat */
+@import "bourbon/bourbon";
+@import "base/base";
+@import "grid-settings";
+@import "neat/neat"; 
+
+/* Import base */
+@import "normalize";
+@import "modules/variables";
+@import "typography";
+@import "structure";
+
+/* Import Add-ons */
+@import "bourbon/addons/clearfix";
+@import "bourbon/addons/prefixer";
+@import "bourbon/addons/font-family";
+@import "modules/buttons";
+
+/* Import Custom */
+@import "fc-mixins";
+@import "fc-legacy";
+@import "fc-popularposts";
+@import "header";
+@import "navigation";
+@import "sidebar";
+@import "footer";
+@import "jetpackmods";
+@import "issuem";
+@import "content";
+@import "mediaelement";

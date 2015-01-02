@@ -1,0 +1,97 @@
+$footer-height: 400px;
+
+// make sure we have a 'sticky' footer
+html {
+	position: relative;
+	min-height: 100%;
+}
+body {
+	margin: 0 0 $footer-height;
+}
+.site-footer {
+	@include outer-container();
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: $footer-height;
+	overflow: hidden;
+	width: 100%;
+	padding: 40px;
+	background: $dark-gray url( images/footer_bg.png );
+  box-shadow: 0 -3px 13px 0 rgba(2, 3, 3, 0.25);
+
+	.footer-widget {
+		font-family: $sans-serif;
+    position: relative;
+    height: $footer-height - 80;
+    overflow: hidden;
+    float: left;
+    text-align: center;
+    padding: 20px;
+
+    @include media($medium-screen) {
+      width: (100% / 12) * 4;
+    }
+
+    a {
+    	color: $medium-gray;
+      font-size: 0.9em;
+      font-weight: 700;
+      text-transform: uppercase;
+      line-height: 1;
+
+      .fa {
+				@include transition(all 0.2s ease-in-out);
+      }
+
+      &:hover {
+      	color: $fc-green;
+      	
+      	.fa-facebook-square {
+      		color: white;
+  				@include transition(all 0.2s ease-in-out);
+      	}
+      	.fa-twitter-square {
+      		color: #55acee;
+  				@include transition(all 0.2s ease-in-out);
+      	}
+      }
+    }
+
+    ul {
+    	margin: 0;
+    	padding: 0;
+    	list-style-type: none;
+    }
+
+    ul.connect {
+    	cursor: pointer;
+
+    	li {
+    		display: inline;
+    		font-size: 2em;
+    		margin: 7px;
+    	}
+    }
+
+    p {
+    	text-align: justify;
+    	color: $medium-gray;
+    }
+
+    div.menu-main-menu-container, div.textwidget {
+    	position: relative;
+    	height: auto;
+    	top: 50%;
+    	@include transform(translateY(-50%));
+
+    	div.footer-logo {
+	    	width: 156px;
+	    	height: 154px;
+	    	text-align: center;
+	    	background: url(images/fc_logo_footer.png) no-repeat center;
+	    	margin: 0 auto 15px;
+    	}
+    }
+	}
+}

@@ -1,0 +1,127 @@
+.login, #wp-auth-check-wrap, #wp-auth-check {
+  font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !important;
+  background: #444448;
+  color: #919191;
+}
+
+.login form {
+  padding: 26px 0 46px;
+}
+
+.login p {
+	margin-bottom: 25px !important;
+}
+
+#login h1 a {
+  background: url('../../../images/fc_logo_footer.png') 0 0 no-repeat;
+  width: 156px;
+  height: 154px;
+}
+
+.message, #login_error {
+	border-left: 8px solid #a1bf58 !important;
+	background-color: #919191 !important;
+	color: #444448;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+}
+
+#login_error {
+	border-left: 8px solid #f0672f !important;
+}
+
+.message a, #login_error a {
+	color: #000;
+}
+
+/* The Form ( The login box )
+* Background color, border, shadow, etc..
+*/
+
+#login form {
+  background-color: #444448;
+  border: none;
+  box-shadow: none;
+  color: #919191;
+}
+
+input[type=password], input[type=text], input#rememberme {
+  background-color: #333337;
+  border: 1px solid #333337;
+  box-shadow: none;
+  color: #919191;
+}
+
+input[type=password]:focus, input[type=text]:focus, input#rememberme:focus {
+	border-color: #a1bf58 !important;
+	-webkit-box-shadow: 0 0 2px rgba(30,140,190,.8);
+	box-shadow: 0 0 2px rgba(30,140,190,.8);
+  color: #919191;
+}
+
+input[type=checkbox]:checked:before {
+	color: #a1bf58;
+}
+
+/* The Login Fields
+* Username and Password
+*/
+
+#login .input {
+  background-color: #333337;
+  padding: 10px;
+  font-weight: 300;
+}
+
+/* The Labels
+* The text above the fields
+*/
+
+#login label {
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 3px;
+  color: #66666c;
+  font-weight: bold;
+}
+
+/*
+* The Submit Button
+*/
+
+#login input[type=submit] {
+	border: 1px solid #444448 !important;
+	background-color: #333337;
+	border: none;
+	border-radius: 0;
+  color: #919191;
+	margin-top: -4px;
+  box-shadow: none;
+}
+
+#login input[type=submit]:hover {
+  border: 1px solid #66666c !important;
+}
+
+#login input[type=submit]:focus {
+  border-color: #a1bf58 !important;
+  -webkit-box-shadow: 0 0 2px rgba(30,140,190,.8);
+  box-shadow: 0 0 2px rgba(30,140,190,.8);
+}
+
+/*
+* The Back to blog and Forgot Password link
+*/
+
+#nav a {
+  color: #919191 !important;
+}
+
+.login #backtoblog, .login #nav {
+  padding: 0;
+}
+
+#backtoblog a {
+	display: none;
+	visibility: hidden;
+}

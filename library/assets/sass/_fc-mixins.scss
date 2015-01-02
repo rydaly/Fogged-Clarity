@@ -1,0 +1,51 @@
+// For adding font icons to elements using CSS pseudo-elements
+@mixin icon($position: before, $icon: "\f128", $styles: true) {
+    @if $position == both {
+        $position: 'before, &:after';
+    }
+    // Either a :before or :after pseudo-element, or both, defaulting to :before
+    &:#{$position} {
+        @if $icon {
+            // A particular icon has been specified
+            content: $icon;
+        }
+        @if $styles {
+            // Supportive icon styles required
+            speak: none;
+            font-style: normal;
+            font-weight: inherit;
+            font-family: 'FontAwesome';
+            padding-right: 0.5em;
+        }
+        // Include any extra rules supplied for the pseudo-element
+        @content;
+    }
+}
+
+@mixin fc_button($bordercolor, $textcolor, $hovercolor, $texthovercolor) {
+    font-family: $sans-serif;
+    font-size: 1em;
+    font-weight: 500;
+    color: $textcolor;
+    line-height: 1.2em;
+    text-align: center;
+    border: 3px solid $bordercolor;
+    display: block;
+    cursor: pointer;
+    border-radius: 0;
+
+    @include transition(all 0.1s ease-in-out);
+
+    &:hover, &:focus {
+        font-family: $sans-serif;
+        color: $texthovercolor;
+        background: $hovercolor;
+        border: 3px solid $texthovercolor;
+        border-radius: 0;
+        @include transition(all $default-anim-time ease-in-out);
+    }
+}
+
+@mixin fc_cat_back_color($color) {
+    background-color: desaturate($color, 10);
+}

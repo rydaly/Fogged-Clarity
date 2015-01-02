@@ -1,0 +1,338 @@
+/* = top menu
+----------------------------------------------- */
+
+// Top bar
+.top-bar {
+  $top-bar-background: $dark-gray;
+  $top-bar-height: 76px;
+  
+  @include position(fixed, 0 0 null null);
+  background-color: $top-bar-background;
+	background: $dark-gray url(images/footer_bg.png);
+  font-family: $sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  height: $top-bar-height;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+	margin-top: -76px;
+  overflow: hidden;
+  z-index: 999997;
+  box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.25);
+
+  .bar-logo {
+  	@include position(absolute, 10px 0 0 10px );
+  	width: 200px;
+  	max-height: none;
+  	z-index: 999999;
+
+  	img, p {
+  		margin: 0;
+  		padding: 0;
+  		display: inline-block;
+  		vertical-align: middle;
+  	}
+
+  	p {
+  		font-family: georgia;
+  		text-transform: none;
+			color: $medium-gray;
+			padding-left: 5px;
+  	}
+  }
+
+  .bar-meta {
+		@include position(absolute, 0.5em 0 0 0);
+		width: 100%;
+		font-size: 24px;
+		font-family: $serif;
+
+		h4.bar-issue {
+			font-family: $sans-serif;
+			font-weight: 400;
+			color: $light-gray;
+			text-align: center;
+			text-transform: none;
+			margin: 0.3em auto 0 auto;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+
+		ul.social-links {
+	  	@include position(absolute, 10px 80px null null );
+	  	z-index: 999999;
+			list-style-type: none;
+			padding: 0;
+			margin: 0;
+
+			li {
+				display: inline;
+				font-size: 0.9em;
+        font-family: $sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 0 0 5px;
+
+        a {
+					color: $medium-gray;
+					padding: 5px;
+      		@include transition(all 0.1s $easing-func);
+
+					&:hover {
+						color: $fc-green;
+        		@include transition(all 0.1s $easing-func);
+					}
+
+					&.fb-link:hover {
+        		color: white;
+					}
+
+					&.twitter-link:hover {
+        		color: #55acee;
+					}
+        }
+			}
+		}
+	}
+}
+
+// styles for animating the top nav bar on scroll
+.nav-show {
+	visibility: visible;
+	opacity: 1;
+	margin-top: 0;
+	@include transition(all $default-anim-time ease-in-out);
+}
+
+.nav-hide {
+	visibility: hidden;
+	opacity: 0;
+	margin-top: -76px;
+	@include transition(all $default-anim-time ease-in-out);
+}
+
+
+
+/* = overlay menu
+----------------------------------------------- */
+
+@mixin stagger-transition-delay($i, $initial-delay, $stagger-delay) {
+  @while $i > 0 {
+    &:nth-of-type(#{$i}) {
+      @include transition-delay($initial-delay + $stagger-delay * $i)
+    }
+    $i: $i - 1;
+  }
+}
+
+$sliding-menu-background: black;
+$sliding-menu-color: white;
+$sliding-menu-background-hover: $base-accent-color;
+$sliding-menu-color-hover: white;
+$animation-time: 0.4s;
+
+.sliding-menu-button {
+  @include position(fixed, 6px 15px null null);
+  cursor: pointer;
+  font-size: $base-font-size;
+  margin-bottom: $base-line-height;
+  outline: none;
+  z-index: 999998;
+
+  #nav-menu-btn {
+  	width: 50px;
+  	height: 64px;
+    		
+		&:hover {
+			.menu-group path {
+				stroke: lighten($medium-gray, 10);
+			}
+		}
+
+  	.menu-group {
+  		@include transform(translate(30px, 32px));
+
+  		path {
+	    	@include transition(all $animation-time $easing-func);
+			  @include transform(translate(-30px, -32px) rotate(0deg));
+	  		@include transform-origin(0 0);
+	  		stroke: $medium-gray;
+    		pointer-events: all;
+			}
+  	}
+
+
+		g.top-group, g.bot-group {
+    	@include transition(all $animation-time $easing-func);
+			@include transform(rotate(0deg));
+		}
+
+		g.top-group.anim {
+			@include transform(rotate(405deg));
+  		@include transform-origin(0 0);
+		}
+
+		g.bot-group.anim {
+			@include transform(rotate(-405deg));
+  		@include transform-origin(0 0);
+		}
+
+		path.top.anim {
+			@include transform(translate(-30px, -19px));
+		  stroke: #eee;
+		}
+
+		path.mid.anim {
+		  stroke-dashoffset: 50;
+		  stroke: #eee;
+		  opacity: 0;
+		}
+
+		path.bot.anim {
+			@include transform(translate(-30px, -45px));
+		  stroke: #eee;
+		}
+  }
+}
+
+.sliding-menu-content {
+  @include position(fixed, 0px auto 0px 0px);
+  @include size(100% 100%);
+  @include transition(all $animation-time $easing-func);
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+  @include flex-direction(column);
+  opacity: 0;
+  visibility: hidden;    
+  background: rgba( $sliding-menu-background, 0.85 );
+  z-index: 999997;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  &.is-visible {
+  		opacity: 1;
+  		visibility: visible;
+  }
+
+  .search-form {
+  	z-index: 99;
+  	width: 50%;
+		position: relative;
+		display: inline-block;
+		margin: 0.8em;
+		margin-bottom: 1.6em;
+
+  	input {
+  		@include box-sizing(border-box);
+  		display: block;
+  	}
+
+  	.search-wrap {
+  		position: relative;
+
+  		input.search-field {
+	      @include appearance(none);
+	      width: 100%;
+			  background-color: $dark-gray;
+		    border-color: darken($medium-gray, 20);
+			  color: lighten($dark-gray, 20);
+	      border-radius: 0;
+		 	 	padding: ($base-line-height / 3) ($base-line-height / 3);
+	      margin: 0;
+	      text-align: center;
+	      font-weight: 400;
+	      font-size: 1.6em;
+				@include transition(all 0.2s ease-in-out);
+
+			  &:hover {
+			  	background-color: lighten($dark-gray, 10);
+					@include transition(all 0.1s ease-in-out);
+			  }
+
+			  &:focus {
+			  	background-color: $light-gray;
+			    color: $medium-gray;
+			    border-color: $form-border-color-focus;
+			    outline: none;
+			    box-shadow: 0 0 5px rgba(black, 0.8);
+	      	text-align: left;
+					@include transition(all 0.1s ease-in-out);
+			  }
+  		}
+
+  		button.search-submit {
+	      @include position(absolute, 0em 0em 0em null);
+	      outline: none;
+	      background-color: $dark-gray;
+	      border-radius: 0;
+	      border-top: 1px solid darken($medium-gray, 20);
+	      border-right: 1px solid darken($medium-gray, 20);
+	      border-bottom: 1px solid darken($medium-gray, 20);
+	      padding: 5px 10px;
+				@include transition(all 0.2s ease-in-out);
+
+				&:hover {
+					@include transition(all 0.1s ease-in-out);
+				}
+
+				i {
+					padding: 0 7px;
+				}
+  		}
+  	}
+  }
+  .menu-main-menu-container {
+  	width: 100%;
+  	z-index: 99;
+  }
+  .js-menu-screen {
+  	z-index: 98;
+		cursor: pointer;
+  }
+  ul {
+    font-family: $sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+  	font-size: 1.6em;
+  	padding: 0;
+  	list-style-type: none;
+  	text-align: center;
+  	// &.is-visible {
+  	// 	li {
+    // 		opacity: 1;
+    // 		@include transform(translateY(0));
+  	// 	}
+  	// }
+  }
+  li {
+  	// opacity: 0;
+  	// @include transform(translateY(100px));
+  	// @include stagger-transition-delay(7, 0, 0.1s);
+  	// @include transition(all $animation-time $easing-func);
+  }
+  li a {
+    color: $sliding-menu-color;
+    display: block;
+    padding: 0.8em;
+			@include transition(all 0.1s $easing-func);
+    &:hover {
+      background-color: $sliding-menu-background-hover;
+      color: white;
+      // color: $sliding-menu-color-hover;
+			@include transition(all 0.1s $easing-func);
+    }
+  }
+}
+
+.menu-screen {
+    @include position(fixed, 0px 0px 0px 0px);
+    @include transition;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999996;
+    &.is-visible {
+        opacity: .4;
+        visibility: visible;
+    }
+}

@@ -1,0 +1,298 @@
+/* Custom style for issuem plugin */
+
+// @mixin issuem-article-columns($columns) {
+//   width: (100% / 12) * $columns;
+// }
+
+@mixin article-border($width, $color) {
+  content: "";
+  border: $width solid $color;
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  @include transition(border 0.2s ease-in-out);
+}
+$issuem-article-height: 20em;
+
+.issuem_issue_title {
+  color: $medium-gray;
+}
+
+.site-content, .modal-window .modal-inner {
+
+  @include clearfix;
+
+  a.issuem_article_link, a.outer_link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none !important;
+    background: none;
+    z-index: 99999;
+  }
+  .issuem_article, .issuem_archive {
+    @include transition (all 0.2s ease-in-out);
+    height: $issuem-article-height;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    float: left;
+    border-top: 0;
+    text-align: center;
+
+    .ribbon-wrapper {
+      $ribbon-background: desaturate($base-accent-color, 10);
+      position: absolute;
+      top: 15px;
+      right: 6px;
+      opacity: 0.8;
+      @include transition(all 0.2s ease-in-out);
+
+      .ribbon {
+        font-size: .8em;
+        font-weight: 600;
+        text-align: center;
+        position: relative;
+        width: 85px;
+        background-color: $ribbon-background;
+        color: white;
+        box-shadow: 0px 0px 3px rgba(0,0,0,0.25);
+      }
+    }
+
+    &:before {
+      @include article-border(6px, white);
+    }
+    &:hover {
+      &:before {
+        opacity: 1;
+        border: 0 solid white;
+        @include transition(border 0.2s ease-in-out);
+      }
+      .ribbon-wrapper {
+        right: 0;
+        opacity: 1;
+        @include transition(all 0.2s ease-in-out);
+      }
+      .issuem_content_container {
+        &:before {
+          border: 0 solid white;
+          border-top: none;
+          @include transition(border 0.2s ease-in-out);
+        }
+      }
+    }
+
+    .issuem_content_container {
+      background: rgba(46, 46, 46, 0.9);
+      padding: 15px;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      cursor: pointer;
+
+      &:before {
+        @include article-border(6px, white);
+        border-top: none;
+      }
+
+      p {
+        width: 100%;
+        margin: 0 auto;
+        color: $light-gray;
+        @include media($medium-screen) {
+          max-width: 80%;
+        }
+      }
+
+      h4 {
+        font-size: 1.6em;
+        line-height: 0.9em;
+        font-family: $sans-serif;
+        text-transform: none;
+        font-weight: 400;
+        color: $light-gray;
+        margin-bottom: 0.4em;
+
+        @include media($large-screen) {
+          font-size: 2em;
+        }
+        // @include media($xl-screen) {
+        //   font-size: 2em;
+        // }
+        // @include media($hg) {
+        //   font-size: 2em;
+        // }
+      }
+
+      p.issuem_article_category {
+        font-family: $sans-serif;
+        font-weight: 700;
+        line-height: 1em;
+        text-transform: uppercase;
+        font-size: 0.8em;
+        margin-bottom: 0.3em;
+
+        @include media($medium-screen) {
+          font-size: 0.8em;
+        }
+        @include media($md) {
+          font-size: 0.9em;
+        }
+        @include media($large-screen) {
+          font-size: 1em;
+        }
+        @include media($xl-screen) {
+          font-size: 1.1em;
+        }
+        @include media($hg) {
+          font-size: 1.2em;
+        }
+      }
+      
+      &.fc_review {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-review-color, 10);
+        // background: rgba($fc-review-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-review-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-review-color, 0);
+        // }
+      }
+      
+      &.fc_art {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-art-color, 10);
+        // background: rgba($fc-art-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-art-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-art-color, 0);
+        // }
+      }
+      
+      &.fc_poetry {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-poetry-color, 10);
+        // background: rgba($fc-poetry-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-poetry-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-poetry-color, 0);
+        // }
+      }
+      
+      &.fc_fiction {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-fiction-color, 10);
+        // background: rgba($fc-fiction-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-fiction-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-fiction-color, 0);
+        // }
+      }
+      
+      &.fc_music {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-music-color, 10);
+        // background: rgba($fc-music-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-music-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-music-color, 0);
+        // }
+      }
+      
+      &.fc_interview {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-interview-color, 10);
+        // background: rgba($fc-interview-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-interview-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-interview-color, 0);
+        // }
+      }
+      
+      &.fc_nonfiction {
+        box-shadow: inset 0 8px 0 -6px desaturate($fc-nonfiction-color, 10);
+        // background: rgba($fc-nonfiction-color, 0.9);
+        p.issuem_article_category {
+          color: desaturate($fc-nonfiction-color, 10);
+        }
+        // h4 {
+        //   color: saturate($fc-nonfiction-color, 0);
+        // }
+      }
+    }
+  }
+
+  .has_image {
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+
+.issuem_article_byline {
+  font-family: $sans-serif;
+  font-weight: 700;
+  line-height: 1em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  margin-bottom: 0.3em;
+
+  @include media($medium-screen) {
+    font-size: 0.8em;
+  }
+  @include media($md) {
+    font-size: 0.8em;
+  }
+  @include media($large-screen) {
+    font-size: 0.8em;
+  }
+  @include media($xl-screen) {
+    font-size: 0.9em;
+  }
+  @include media($hg) {
+    font-size: 1em;
+  }
+}
+
+
+
+/* Flex box for articles and archives */
+.issuem_articles_shortcode, .issuem_archives_shortcode {
+  @include clearfix;
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(stretch);
+  @include flex-wrap(wrap);
+  text-align: center;
+}
+
+.issuem_article, .issuem_archive {
+  @include transition (all 0.2s ease-in-out);
+  @include flex(2 2 18em);
+  @include align-self(stretch);
+  display: block;
+  box-shadow: inset 0 0 15px $dark-gray;
+  margin: 0.2em;
+  &.lrg {
+    @include flex(1 1 30em);
+  }
+}
+
+/* Archives Page Refinements */
+
+// two colums max
+.issuem_archive {
+  @include flex(1 1 30em);
+}
