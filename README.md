@@ -1,3 +1,7 @@
+# Fogged Clarity
+
+### A Wordpress theme based on 'Some Like it Neat.' Note: This theme has some very specific dependencies and a very specific purpose.
+
 # Some Like it Neat
 
 ### A WordPress Theme Using _s, Bourbon + Neat and Theme Hook Alliance

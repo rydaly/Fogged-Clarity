@@ -260,9 +260,9 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
             $cat_name = "fc_nonfiction";
             $val_name = "Nonfiction";
             break;
-          default:
-            $cat_name = "fc_uncat";
-            $val_name = "Uncat";
+          default: // defaults to fc green
+            $cat_name = "fc_poetry";
+            $val_name = "Poetry";
         }
 
         if($cat_name === "fc_music") {
