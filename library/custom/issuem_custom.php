@@ -10,26 +10,22 @@ function register_custom_issuem() {
   add_shortcode( 'issuem_articles', 'do_custom_issuem_articles' );
   add_shortcode( 'issuem_featured_rotator', 'do_custom_issuem_featured_rotator' );
   add_shortcode( 'issuem_archives', 'do_custom_issuem_archives' );
+  add_shortcode( 'issuem_contributors', 'do_fc_issuem_contributors' );
 }
 
-if ( !function_exists( 'do_custom_issuem_articles' ) ) {
+if ( !function_exists( 'do_fc_issuem_contributors' ) ) {
   /**
-   * Outputs Article HTML from shortcode call
-   *
-   * @since 1.0.0
+   * Outputs Contributors Page HTML from shortcode call - gets all authors in current issue
    *
    * @param array $atts Arguments passed through shortcode
-   * @return string HTML output of IssueM Articles
+   * @return string HTML output of authors, bios and links to posts in current issue
    */
 
-  function do_custom_issuem_articles( $atts, $article_format = NULL ) {
-    
+  function do_fc_issuem_contributors( $atts ) {
     global $post;
     
     $issuem_settings = get_issuem_settings();
     $results = '';
-    $cat_filter_list = [];  // array of categories in current issue
-    $music_count = 0;       // flag for 'music' since multiple categories are contained within it
     $wrap_results = '';
     $main_results = '';
     $articles = array();
@@ -38,7 +34,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
     $defaults = array(
       'posts_per_page'      => -1,
       'offset'              => 0,
-      'orderby'             => 'menu_order',
+      'orderby'             => 'author', //author
       'order'               => 'DESC',
       'article_format'      => empty( $article_format ) ? $issuem_settings['article_format'] : $article_format,
       'show_featured'       => 1,
@@ -62,16 +58,16 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
     if ( !$show_featured ) {
       
       $args['meta_query'] = array(
-                  'relation' => 'AND',
-                  array(
-                    'key' => '_featured_rotator',
-                    'compare' => 'NOT EXISTS'
-                  ),
-                  array(
-                    'key' => '_featured_thumb',
-                    'compare' => 'NOT EXISTS'
-                  )
-                );
+        'relation' => 'AND',
+        array(
+          'key' => '_featured_rotator',
+          'compare' => 'NOT EXISTS'
+        ),
+        array(
+          'key' => '_featured_thumb',
+          'compare' => 'NOT EXISTS'
+        )
+      );
       
     }
   
@@ -155,12 +151,271 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
       );
 
       $args['tax_query'] = array(
-                               'relation'      => 'AND',
-                                $issuem_issue,
-                                $category
-                        );
+        'relation' => 'AND',
+        $issuem_issue,
+        $category
+      );
 
-                        $articles = array_merge( $articles, get_posts( $args ) );
+      $articles = array_merge( $articles, get_posts( $args ) );
+
+      //Now we need to get rid of duplicates (assuming an article is in more than one category
+      if ( !empty( $articles ) ) {
+        
+        foreach( $articles as $article ) {
+        
+          $post__in[] = $article->ID;
+          
+        }
+        
+        $args['post__in'] = array_unique( $post__in );
+        $args['orderby']  = 'post__in';
+        unset( $args['tax_query'] );
+          
+        $articles = get_posts( $args );
+      
+      }
+      
+    } else {
+      
+      if ( !empty( $article_category ) && 'all' !== $article_category ) {
+          
+        $category = array(
+          'taxonomy'  => $cat_type,
+          'field'   => 'slug',
+          'terms'   => split( ',', $article_category ),
+        );  
+        
+        $args['tax_query'] = array(
+          'relation'  => 'AND',
+          $issuem_issue,
+          $category
+        );
+        
+      }
+        
+      $articles = get_posts( $args );
+      
+    }
+
+    // helper function for sorting author arrays below
+    function array_combine_($keys, $values)
+    {
+      $result = array();
+      foreach ($keys as $i => $k) {
+        $result[$k][] = $values[$i];
+      }
+      array_walk($result, create_function('&$v', '$v = (count($v) == 1)? array_pop($v): $v;'));
+      return $result;
+    }
+
+    global $cfs;
+
+    $author_list = array();
+    $authors_array = array();
+
+    // TODO :: echo current issue title here
+    echo '<h3>' . get_issuem_issue_title() . '</h3>';
+
+    foreach( $articles as $article ) {
+      $author_name = get_issuem_author_name( $article );
+      $author_bio = $cfs->get('artist_bio', $article->ID);
+      $ar_title = get_the_title( $article->ID );
+      $ar_link = get_permalink( $article->ID );
+
+      array_push( $authors_array, [ $author_bio, $ar_title, $ar_link ] );
+      array_push( $author_list, $author_name );
+    }
+
+    $authors_array = array_combine_( $author_list, $authors_array );
+
+    foreach ( $authors_array as $author_key => $author_val ) {
+      echo '<div id="bio">';
+
+      if( is_array( $author_val[0] ) ) {
+        // more than one article from this author
+        $bio = $author_val[0][0];
+
+        echo $bio;
+        echo '<div class="workLink"><h3>In This Issue</h3>';
+
+        foreach ( $author_val as $key => $link_val ) {
+          // loop through and get all article titles and links
+          $title = $link_val[1];
+          $link = $link_val[2];
+
+          echo '<a href="' . $link . '" title="' . $title . '">' . $title . '</a>';
+        }
+        echo '</div></div>';
+      } else {
+        // author has only one article
+        $bio = $author_val[0];
+        $title = $author_val[1];
+        $link = $author_val[2];
+
+        echo $bio;
+        echo '<div class="workLink"><h3>In This Issue</h3>';
+        echo '<a href="' . $link . '" title="' . $title . '">' . $title . '</a></div></div>';
+      }
+    }
+    wp_reset_postdata();
+  }
+}
+
+
+
+/*******************************************************************************************/
+
+
+
+if ( !function_exists( 'do_custom_issuem_articles' ) ) {
+  /**
+   * Outputs Article HTML from shortcode call
+   *
+   * @since 1.0.0
+   *
+   * @param array $atts Arguments passed through shortcode
+   * @return string HTML output of IssueM Articles
+   */
+
+  function do_custom_issuem_articles( $atts, $article_format = NULL ) {
+    
+    global $post;
+    
+    $issuem_settings = get_issuem_settings();
+    $results = '';
+    $cat_filter_list = [];  // array of categories in current issue
+    $music_count = 0;       // flag for 'music' since multiple categories are contained within it
+    $wrap_results = '';
+    $main_results = '';
+    $articles = array();
+    $post__in = array();
+    
+    $defaults = array(
+      'posts_per_page'      => -1,
+      'offset'              => 0,
+      'orderby'             => 'menu_order',
+      'order'               => 'DESC',
+      'article_format'      => empty( $article_format ) ? $issuem_settings['article_format'] : $article_format,
+      'show_featured'       => 1,
+      'issue'               => get_active_issuem_issue(),
+      'article_category'    => 'all',
+      'use_category_order'  => 'false',
+    );
+  
+    // Merge defaults with passed atts
+    // Extract (make each array element its own PHP var
+    extract( shortcode_atts( $defaults, $atts ) );
+    
+    $args = array(
+      'posts_per_page'  => $posts_per_page,
+      'offset'          => $offset,
+      'post_type'       => 'article',
+      'orderby'         => $orderby,
+      'order'           => $order
+    );
+    
+    if ( !$show_featured ) {
+      
+      $args['meta_query'] = array(
+        'relation' => 'AND',
+        array(
+          'key' => '_featured_rotator',
+          'compare' => 'NOT EXISTS'
+        ),
+        array(
+          'key' => '_featured_thumb',
+          'compare' => 'NOT EXISTS'
+        )
+      );
+      
+    }
+  
+    $issuem_issue = array(
+      'taxonomy'  => 'issuem_issue',
+      'field'   => 'slug',
+      'terms'   => $issue
+    );
+    
+    $args['tax_query'] = array(
+      $issuem_issue
+    );
+    
+    if ( !empty( $issuem_settings['use_wp_taxonomies'] ) ) 
+      $cat_type = 'category';
+    else
+      $cat_type = 'issuem_issue_categories';
+      
+    if ( 'true' === $use_category_order && 'issuem_issue_categories' === $cat_type ) {
+
+      $count = 0;
+      
+      if ( 'all' === $article_category ) {
+      
+        $all_terms = get_terms( 'issuem_issue_categories' );
+        
+        foreach( $all_terms as $term ) {
+        
+          $issue_cat_meta = get_option( 'issuem_issue_categories_' . $term->term_id . '_meta' );
+            
+          if ( !empty( $issue_cat_meta['category_order'] ) )
+            $terms[ $issue_cat_meta['category_order'] ] = $term->slug;
+          else
+            $terms[ '-' . ++$count ] = $term->slug;
+            
+        }
+        
+      } else {
+      
+        foreach( split( ',', $article_category ) as $term_slug ) {
+          
+          $term = get_term_by( 'slug', $term_slug, 'issuem_issue_categories' );
+        
+          $issue_cat_meta = get_option( 'issuem_issue_categories_' . $term->term_id . '_meta' );
+            
+          if ( !empty( $issue_cat_meta['category_order'] ) )
+            $terms[ $issue_cat_meta['category_order'] ] = $term->slug;
+          else
+            $terms[ '-' . ++$count ] = $term->slug;
+            
+        }
+      
+      }
+      
+      krsort( $terms );
+      $articles = array();
+      
+      foreach( $terms as $term ) {
+      
+        $category = array(
+          'taxonomy'  => $cat_type,
+          'field'   => 'slug',
+          'terms'   => $term,
+        );  
+        
+        $args['tax_query'] = array(
+          'relation'  => 'AND',
+          $issuem_issue,
+          $category
+        );
+        
+        $articles = array_merge( $articles, get_posts( $args ) );
+      }
+    
+      //And we want all articles not in a category
+      $category = array(
+        'taxonomy'  => $cat_type,
+        'field'   => 'slug',
+        'terms'   => $terms, 
+        'operator'  => 'NOT IN',
+      );
+
+      $args['tax_query'] = array(
+        'relation' => 'AND',
+        $issuem_issue,
+        $category
+      );
+
+      $articles = array_merge( $articles, get_posts( $args ) );
 
       //Now we need to get rid of duplicates (assuming an article is in more than one category
       if ( !empty( $articles ) ) {
@@ -388,11 +643,8 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
             $fc_cat_class = "fc_uncat";
         }
 
-        // wp_print_r($fc_cat); 
-        
         $post = $article;
         setup_postdata( $article );
-        // wp_print_r(get_permalink( $article->ID ));
 
         $results .= $wrap_results;
         $results .= '<a class="outer_link" href="' . $post_link . '"></a>';
@@ -419,6 +671,12 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
     return $results;
   }
 }
+
+
+
+/*******************************************************************************************/
+
+
 
 if ( !function_exists( 'do_custom_issuem_featured_rotator' ) ) {
   
@@ -585,6 +843,12 @@ if ( !function_exists( 'do_custom_issuem_featured_rotator' ) ) {
     return $results;
   }
 }
+
+
+
+/*******************************************************************************************/
+
+
 
 if ( !function_exists( 'do_custom_issuem_archives' ) ) {
   

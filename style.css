@@ -5675,7 +5675,6 @@ h1.entry-title, h1.page-title {
   width: 82.97872%;
   margin-left: 8.51064%;
   font-family: "freight-display-pro", Georgia, Cambria, "Times New Roman", Times, serif;
-  font-style: italic;
   font-weight: 500;
   margin-top: 5em;
   font-size: 22px;
@@ -5692,7 +5691,13 @@ h1.entry-title, h1.page-title {
 #bio:last-child {
   margin-right: 0;
 }
-#bio strong {
+#bio div.workLink {
+  text-align: center;
+}
+#bio div.workLink a {
+  display: block;
+}
+#bio strong, #bio em {
   font-family: "freight-display-pro", Georgia, Cambria, "Times New Roman", Times, serif;
   font-size: 22px;
   font-style: italic;
