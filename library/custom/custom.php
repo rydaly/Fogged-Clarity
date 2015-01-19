@@ -1,51 +1,106 @@
 <?php
 
 /**
- * Typekit
+ * Maintenance !! diable this and change flags in config.php
  */
 
-function fc_typekit() {
-  // TODO :: add production typekit link here
-  wp_enqueue_script( 'fc_typekit', '//use.typekit.net/yzy0zix.js'); 
-}
-add_action( 'wp_enqueue_scripts', 'fc_typekit' );
+// add_action('wp_loaded', function() {
+//     global $pagenow;
+//     if(
+//        defined('IN_MAINTENANCE')
+//        && IN_MAINTENANCE
+//        && $pagenow !== 'wp-login.php'
+//        && ! is_user_logged_in()
+//     ) {
+//        header('HTTP/1.1 Service Unavailable', true, 503);
+//        header('Content-Type: text/html; charset=utf-8');
+//        if ( file_exists(WP_CONTENT_DIR . '/maintenance.php') ) {
+//           require_once( WP_CONTENT_DIR . '/maintenance.php' );
+//        }
+//        die();
+//     }
+// });
 
-function fc_typekit_inline() {
-  if ( wp_script_is( 'fc_typekit', 'done' ) ) { ?>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-<?php }
-}
-add_action( 'wp_head', 'fc_typekit_inline' );
 
 
 /**
- * Dequeue some things
+ * HEAD
  */
-function fc_dequeue_styles() {
+
+function fc_wp_head() { ?>
+  <!-- Typekit -->
+  <script>
+    (function(d) {
+      var config = {
+        kitId: 'yzy0zix',
+        scriptTimeout: 3000
+      },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
+
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="http://foggedclarity.com/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="http://foggedclarity.com/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="http://foggedclarity.com/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="http://foggedclarity.com/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="http://foggedclarity.com/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="http://foggedclarity.com/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="http://foggedclarity.com/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="http://foggedclarity.com/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="http://foggedclarity.com/icons/apple-touch-icon-180x180.png">
+  <link rel="shortcut icon" href="http://foggedclarity.com/icons/favicon.ico">
+  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-32x32.png" sizes="32x32">
+  <meta name="msapplication-TileColor" content="#2b5797">
+  <meta name="msapplication-TileImage" content="http://foggedclarity.com/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="http://foggedclarity.com/icons/browserconfig.xml">
+<?php }
+
+add_action( 'wp_head', 'fc_wp_head' );
+
+
+
+/**
+ * Dequeue and enqueue some things
+ */
+function fc_handle_scripts_and_styles() {
   wp_dequeue_style('mediaelement');
   wp_dequeue_style('wp-mediaelement');
   wp_deregister_style('wp-mediaelement');
   wp_deregister_style('mediaelement');
+
+  wp_dequeue_style( 'screen' );
+  wp_deregister_style( 'screen' );
+  wp_register_script( 'fc_scripts', get_template_directory_uri() . '/dist/scripts/production.min.js', array(), '', false );
+  wp_enqueue_script( 'fc_scripts' );
 }
-add_action( 'wp_enqueue_scripts', 'fc_dequeue_styles', 1 );
+add_action( 'wp_enqueue_scripts', 'fc_handle_scripts_and_styles', 1 );
+
+// grab production css instead of default
+// function fc_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+//     return $stylesheet_dir_uri . '/dist/styles/style.min.css';
+// }
+// add_filter( 'stylesheet_uri', 'fc_stylesheet_uri', 1, 2 );
 
 
 
 /**
- * Enqueue FC styles and scripts
+ * custom excerpt and read more
  */
-function fc_enqueue_scripts() {
-  wp_dequeue_style( 'screen' );
-  wp_deregister_style( 'screen' );
-  // wp_enqueue_style( 'fc_styles', $src, $deps, $ver, $media );
-  wp_register_script( 'fc_scripts', get_template_directory_uri() . '/dist/scripts/production.min.js', array(), '', false );
-  wp_enqueue_script( 'fc_scripts' );
-  // wp_enqueue_style( 'fc-styles', get_stylesheet_uri(), array(), '1.0' );
-  // wp_enqueue_script( 'jquery' );
-  // wp_enqueue_script( 'default-scripts', get_template_directory_uri() . '/js/scripts.min.js', array(), '1.0', true );
-  // if ( is_singular() ) wp_enqueue_script( 'comment-reply' );
+function fc_excerpt_more( $more ) {
+  return '&hellip;';
 }
-add_action( 'wp_enqueue_scripts', 'fc_enqueue_scripts', 20 );
+add_filter('excerpt_more', 'fc_excerpt_more');
+
+function fc_excerpt_read_more_link( $output ) {
+  global $post;
+  return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="moretag" title="Read More">More</a>';
+}
+add_filter( 'get_the_excerpt', 'fc_excerpt_read_more_link' );
 
 
 
@@ -107,7 +162,7 @@ function fc_header_top() { ?>
           <div class="hero-copy">
             <h1 class="blog-name"><?php bloginfo( 'name' ); ?></h1>
               <hr class="divider">
-              <p><?php echo get_term_by( 'slug', $_COOKIE['issuem_issue'], 'issuem_issue' )->name; ?></p>
+              <h3><?php echo get_term_by( 'slug', $_COOKIE['issuem_issue'], 'issuem_issue' )->name; ?></h3>
           </div>
         </div>
       </div>
@@ -159,6 +214,8 @@ function fc_header_top() { ?>
 add_action( 'tha_header_top', 'fc_header_top' );
 
 function fc_header_bottom() {
+  // wp_print_r ( get_current_type() );
+  
   if( is_front_page() || get_current_type() === "tax" ) { ?>
     <div class="hero hero-carousel">
       <div class="feature-rotator">
@@ -167,12 +224,13 @@ function fc_header_bottom() {
     </div>
   <?php } else {
     global $post;
-    if( !is_front_page() && is_page() ) {
-      $output = '<h1 class="page-title">' . get_the_title( $post->id ) . '</h1>';
-      $output .= '<div class="entry-meta">';
-      $output .= '<hr class="divider">'; // TODO :: add sharing here
-      $output .= '</div>';
-      echo $output;
+    if( !is_front_page() && is_page() ) { ?>
+      <h1 class="page-title"><?php the_title( $post->id ); ?></h1>
+      <div class="entry-meta">
+        <hr class="divider">
+        <?php if( is_page( 'Contributors' ) ) { ?><h3><?php echo get_issuem_issue_title(); } ?></h3>
+        <?php if ( function_exists( 'sharing_display' ) ) { sharing_display( '', true ); } ?>
+      </div><?php
     }
   }
 }
@@ -213,6 +271,27 @@ function fc_footer_before() {
   }
 }
 add_action( 'tha_footer_before', 'fc_footer_before');
+
+
+
+/**
+ * Add Google Analytics tracking
+ *
+ */
+
+function fc_footer_after() { ?>
+  <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+  </script>
+  <script type="text/javascript">
+    try {
+      var pageTracker = _gat._getTracker("UA-7349365-1");
+      pageTracker._trackPageview();
+    } catch(err) {}
+  </script>
+<?php }
+add_action( 'tha_footer_after', 'fc_footer_after' );
 
 
 
@@ -260,7 +339,7 @@ function fc_add_sharedaddy() {
   wp_localize_script( 'sharing-js', 'sharing_js_options', $sharing_js_options);
 }
 
-add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
+// add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
 
 function jetpack_remove_styles() {
   // wp_deregister_style('AtD_style'); // After the Deadline
@@ -283,11 +362,8 @@ add_action('wp_print_styles', 'jetpack_remove_styles');
 
 
 /**
- * helper functions for dev
+ * helper functions
  */
-
-
-
 function get_current_type() {
   global $wp_query;
   $current_type = 'notfound';
@@ -388,7 +464,16 @@ function fc_widgets_init() {
 }
 add_action( 'widgets_init', 'fc_widgets_init' );
 
+/**
+ * plugins to make WordPress faster
+ */
 
+// remove query strings from static resources so they get cached
+function ewp_remove_script_version( $src ){
+  return remove_query_arg( 'ver', $src );
+}
+add_filter( 'script_loader_src', 'ewp_remove_script_version', 15, 1 );
+add_filter( 'style_loader_src', 'ewp_remove_script_version', 15, 1 );
 
 /**
  * plugins to make WordPress client friendly
@@ -432,3 +517,61 @@ function fc_hide_admin_nags() {
   </style>';
 }
 add_action('admin_head', 'fc_hide_admin_nags');
+
+// custom admin dashboard logo
+// function custom_admin_logo()
+// {
+//     echo '<style type="text/css">
+//        #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
+//          content: url(' . get_bloginfo('stylesheet_directory') . '/images/fc_logo_tiny.png) !important;
+//          width: 20px !important;
+//        }</style>';
+// }
+// add_action('admin_head', 'custom_admin_logo');
+
+
+
+/**
+ * Customize backend for non-admins
+ */
+
+// $admins = array( 'RyanDaly' ); // add more comma separated usernames here if needed
+// $current_user = wp_get_current_user();
+// // echo 'Username: ' . $current_user->user_login . '<br />';
+
+// // if not admin, add filters and actions
+// if( !in_array( $current_user->user_login, $admins ) ) {
+//     //add_filter( 'parse_query', 'fc_hide_admin_pages' );
+//     //add_action('admin_notices', 'fc_hide_update_notification');
+//     //add_action('admin_menu', 'fc_hide_admin_menus', 999);
+// }
+
+// // remove wp upgrade notification
+// function fc_hide_update_notification() {  
+//   remove_action('admin_notices', 'update_nag', 3);
+// }
+
+// // remove some admin menu items
+// function fc_hide_admin_menus() {
+//     // remove_submenu_page( 'jetpack', 'jetpack' );
+//     // remove_menu_page( 'jetpack' );
+//     remove_menu_page( 'wpcf7' ); // Contact Form 7
+//     remove_menu_page( 'edit.php?post_type=cfs' ); // Custom Field Suite
+    
+//     global $menu;
+//     $restricted = array(__('Media', 'foggedclarity'), __('Appearance', 'foggedclarity'), __('Plugins', 'foggedclarity'), __('Tools', 'foggedclarity'), __('Settings', 'foggedclarity'), __('Roles', 'foggedclarity'), __('Links', 'foggedclarity'), __('Comments', 'foggedclarity'));
+//     end ($menu);
+//     while (prev($menu)){
+//         $value = explode(' ',$menu[key($menu)][0]);
+//         if(in_array($value[0] != NULL?$value[0]:"" , $restricted)){unset($menu[key($menu)]);}
+//     }
+// }
+
+// // remove some pages
+// function fc_hide_admin_pages($query) {
+//     if ( ! is_admin() )
+//         return $query;
+//     global $pagenow, $post_type;
+//         if ( !current_user_can( 'administrator' ) && is_admin() && $pagenow == 'edit.php' && $post_type == 'page' )
+//             $query->query_vars['post__not_in'] = array( '32', '44' ); // Enter more page IDs here
+// }

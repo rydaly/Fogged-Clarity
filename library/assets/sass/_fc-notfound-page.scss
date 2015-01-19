@@ -1,0 +1,28 @@
+.no-results, .not-found {
+  
+  .page-content {
+    text-align: center;
+    
+    .search-form {
+      width: 100%;
+      margin: 0;
+
+      @include media( $large-screen ) {
+        width: 60%;
+      }
+
+      .search-wrap {
+        input.search-field {
+
+          &:focus {
+            background-color: $light-gray;
+            color: $medium-gray;
+            border-color: $fc-green;
+            box-shadow: 0 0 5px rgba(black, 0.2);
+            @include transition(all 0.1s ease-in-out);
+          }
+        }
+      }
+    }
+  }
+}

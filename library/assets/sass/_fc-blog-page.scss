@@ -1,0 +1,84 @@
+.blog-entry {
+
+  button {
+  }
+
+  p {
+    color: $base-font-color;
+    line-height: $base-line-height;
+  }
+
+  $side-image-background-top: $fc-green;
+  $side-image-background-bottom: $fc-green;
+  $blog-entry-content-background: $light-gray;
+  // $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, .8), 30);
+  $side-image-border: 6px solid darken($side-image-background-bottom, 10);
+
+  background: $blog-entry-content-background;
+
+  @include media($large-screen) {
+    @include row(table);
+  }
+
+  .image-holder {
+    background-color: $side-image-background-top;
+    border-bottom: $side-image-border;
+    display: block;
+    min-height: 2em;
+    padding: 3em;
+
+    @include media($large-screen) {
+      @include span-columns(4);
+      border-right: $side-image-border;
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry-content {
+    @include span-columns(12);
+    padding: 1em;
+
+    @include media($large-screen) {
+      @include span-columns(8);
+      padding: 4em;
+    }
+
+    h1 {
+      margin-bottom: .9em;
+    }
+
+    h3 {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    h4 {
+      // background: #BBB;
+      color: lighten( $medium-gray, 10 );
+      display: inline-block;
+      font-size: .75em;
+      font-weight: 800;
+      margin-bottom: 1.3em;
+      // padding: 3px 8px;
+      text-transform: uppercase;
+    }
+
+    p {
+      color: $dark-gray;
+      margin-bottom: 1em;
+    }
+
+    a.moretag {
+      outline: none;
+      @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), $base-accent-color);
+      background-color: transparent;
+      font-size: 0.8em;
+      width: 80px;
+      height: 36px;
+      padding-top: 5px;
+      margin-top: 1em;
+    }
+  }
+
+  @include reset-display();
+}

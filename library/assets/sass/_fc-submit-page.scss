@@ -1,0 +1,110 @@
+.intro {
+  margin-bottom: 5em;
+}
+
+.bullets {
+  padding: 0;
+
+  h2 {
+    margin: 0;
+  }
+
+  li.bullet {
+    list-style: none;
+  }
+
+  p {
+    color: $dark-gray;
+    line-height: $base-line-height;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  //////////////////////////////////////////////////////////////////////////////////
+
+  $icon-bullet-size: 1.125rem;
+
+  @include display(flex);
+  @include flex-wrap(wrap);
+  // margin: 2em 0 5em 0;
+  margin-bottom: 5em;
+  overflow: auto;
+
+  .bullet {
+    @include flex-basis(100em);
+    @include flex-grow(1);
+  }
+
+  .bullet-icon {
+    color: $fc-green;
+    float: left;
+    margin-left: 10px;
+    i {
+      font-size: $icon-bullet-size;
+    }
+  }
+
+  .bullet-icon-1 {
+  }
+
+  .bullet-icon-2 {
+  }
+
+  .bullet-icon-3 {
+  }
+
+  .bullet-content {
+    margin-left: $icon-bullet-size * 1.4;
+    margin-bottom: 2em;
+    p {
+      margin-left: 10px;
+    }
+  }
+
+  h2 {
+    display: inline-block;
+    font-size: $icon-bullet-size / 2.5;
+    margin-bottom: $icon-bullet-size / 6;
+    padding-top: $icon-bullet-size / 7;
+  }
+
+  .fa-exclamation-circle {
+    color: $fc-red;
+  }
+}
+
+.artist-notes {
+  margin-bottom: 5em;
+
+  div {
+    font-size: 1.1em;
+    line-height: 1.1em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: inline-block;
+    color: white;
+    margin: 0;
+    padding: 1px 4px 3px;
+
+    &.poetry {
+      background: desaturate($fc-green, 10);
+    }
+    &.fiction {
+      background: desaturate($fc-teal2, 10);
+    }
+    &.music {
+      background: desaturate($fc-red, 10);
+    }
+    &.art {
+      background: desaturate($fc-blue2, 10);
+    }
+    &.review {
+      background: desaturate($fc-yellow, 10);
+    }
+  }
+
+  p {
+    margin-bottom: 1.2em;
+  }
+}

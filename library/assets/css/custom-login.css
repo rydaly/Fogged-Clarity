@@ -14,8 +14,9 @@
 
 #login h1 a {
   background: url('../../../images/fc_logo_footer.png') 0 0 no-repeat;
+  background-size: 156px 156px;
   width: 156px;
-  height: 154px;
+  height: 156px;
 }
 
 .message, #login_error {

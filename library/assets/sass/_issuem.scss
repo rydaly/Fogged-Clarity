@@ -235,9 +235,7 @@ $issuem-article-height: 20em;
   }
 
   .has_image {
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
+    
   }
 }
 
@@ -285,6 +283,7 @@ $issuem-article-height: 20em;
   display: block;
   box-shadow: inset 0 0 15px $dark-gray;
   margin: 0.2em;
+  background-size: cover;
   &.lrg {
     @include flex(1 1 30em);
   }

@@ -8,7 +8,8 @@
   
   @include position(fixed, 0 0 null null);
   background-color: $top-bar-background;
-	background: $dark-gray url(images/footer_bg.png);
+	background: $dark-gray url(../images/footer_bg.png);
+  background-size: 400px 400px;
   font-family: $sans-serif;
   text-transform: uppercase;
   font-weight: 700;
@@ -215,73 +216,6 @@ $animation-time: 0.4s;
   		visibility: visible;
   }
 
-  .search-form {
-  	z-index: 99;
-  	width: 50%;
-		position: relative;
-		display: inline-block;
-		margin: 0.8em;
-		margin-bottom: 1.6em;
-
-  	input {
-  		@include box-sizing(border-box);
-  		display: block;
-  	}
-
-  	.search-wrap {
-  		position: relative;
-
-  		input.search-field {
-	      @include appearance(none);
-	      width: 100%;
-			  background-color: $dark-gray;
-		    border-color: darken($medium-gray, 20);
-			  color: lighten($dark-gray, 20);
-	      border-radius: 0;
-		 	 	padding: ($base-line-height / 3) ($base-line-height / 3);
-	      margin: 0;
-	      text-align: center;
-	      font-weight: 400;
-	      font-size: 1.6em;
-				@include transition(all 0.2s ease-in-out);
-
-			  &:hover {
-			  	background-color: lighten($dark-gray, 10);
-					@include transition(all 0.1s ease-in-out);
-			  }
-
-			  &:focus {
-			  	background-color: $light-gray;
-			    color: $medium-gray;
-			    border-color: $form-border-color-focus;
-			    outline: none;
-			    box-shadow: 0 0 5px rgba(black, 0.8);
-	      	text-align: left;
-					@include transition(all 0.1s ease-in-out);
-			  }
-  		}
-
-  		button.search-submit {
-	      @include position(absolute, 0em 0em 0em null);
-	      outline: none;
-	      background-color: $dark-gray;
-	      border-radius: 0;
-	      border-top: 1px solid darken($medium-gray, 20);
-	      border-right: 1px solid darken($medium-gray, 20);
-	      border-bottom: 1px solid darken($medium-gray, 20);
-	      padding: 5px 10px;
-				@include transition(all 0.2s ease-in-out);
-
-				&:hover {
-					@include transition(all 0.1s ease-in-out);
-				}
-
-				i {
-					padding: 0 7px;
-				}
-  		}
-  	}
-  }
   .menu-main-menu-container {
   	width: 100%;
   	z-index: 99;
@@ -335,4 +269,76 @@ $animation-time: 0.4s;
         opacity: .4;
         visibility: visible;
     }
+}
+
+.search-form {
+  z-index: 99;
+  width: 90%;
+  position: relative;
+  display: inline-block;
+  margin: 0.8em;
+  margin-bottom: 1.6em;
+
+  @include media( $large-screen ) {
+    width: 50%;
+  }
+
+  input {
+    @include box-sizing(border-box);
+    display: block;
+  }
+
+  .search-wrap {
+    position: relative;
+
+    input.search-field {
+      @include appearance(none);
+      width: 100%;
+      background-color: $dark-gray;
+      border-color: darken($medium-gray, 20);
+      color: lighten($dark-gray, 20);
+      border-radius: 0;
+      padding: ($base-line-height / 3) ($base-line-height / 3);
+      margin: 0;
+      text-align: center;
+      font-weight: 400;
+      font-size: 1.6em;
+      @include transition(all 0.2s ease-in-out);
+
+      &:hover {
+        background-color: lighten($dark-gray, 10);
+        @include transition(all 0.1s ease-in-out);
+      }
+
+      &:focus {
+        background-color: $light-gray;
+        color: $medium-gray;
+        border-color: $form-border-color-focus;
+        outline: none;
+        box-shadow: 0 0 5px rgba(black, 0.8);
+        text-align: left;
+        @include transition(all 0.1s ease-in-out);
+      }
+    }
+
+    button.search-submit {
+      @include position(absolute, 0em 0em 0em null);
+      outline: none;
+      background-color: $dark-gray;
+      border-radius: 0;
+      border-top: 1px solid darken($medium-gray, 20);
+      border-right: 1px solid darken($medium-gray, 20);
+      border-bottom: 1px solid darken($medium-gray, 20);
+      padding: 5px 10px;
+      @include transition(all 0.2s ease-in-out);
+
+      &:hover {
+        @include transition(all 0.1s ease-in-out);
+      }
+
+      i {
+        padding: 0 7px;
+      }
+    }
+  }
 }

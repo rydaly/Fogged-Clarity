@@ -2,7 +2,7 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package digistarter
+ * @package foggedclarity
  */
 
 get_header(); ?>
@@ -14,7 +14,7 @@ get_header(); ?>
 
 			<?php get_template_part( 'page-templates/partials/content', 'single' ); ?>
 
-			<?php digistarter_post_nav(); ?>
+			<?php foggedclarity_post_nav(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template

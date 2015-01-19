@@ -12,39 +12,39 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package digistarter
+ * @package foggedclarity
  */
 
 /**
  * Setup the WordPress core custom header feature.
  *
- * @uses digistarter_header_style()
- * @uses digistarter_admin_header_style()
- * @uses digistarter_admin_header_image()
+ * @uses foggedclarity_header_style()
+ * @uses foggedclarity_admin_header_style()
+ * @uses foggedclarity_admin_header_image()
  *
- * @package digistarter
+ * @package foggedclarity
  */
-function digistarter_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'digistarter_custom_header_args', array(
+function foggedclarity_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'foggedclarity_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'digistarter_header_style',
-		'admin-head-callback'    => 'digistarter_admin_header_style',
-		'admin-preview-callback' => 'digistarter_admin_header_image',
+		'wp-head-callback'       => 'foggedclarity_header_style',
+		'admin-head-callback'    => 'foggedclarity_admin_header_style',
+		'admin-preview-callback' => 'foggedclarity_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'digistarter_custom_header_setup' );
+add_action( 'after_setup_theme', 'foggedclarity_custom_header_setup' );
 
-if ( ! function_exists( 'digistarter_header_style' ) ) :
+if ( ! function_exists( 'foggedclarity_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see digistarter_custom_header_setup().
+ * @see foggedclarity_custom_header_setup().
  */
-function digistarter_header_style() {
+function foggedclarity_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -77,15 +77,15 @@ function digistarter_header_style() {
 	</style>
 	<?php
 }
-endif; // digistarter_header_style
+endif; // foggedclarity_header_style
 
-if ( ! function_exists( 'digistarter_admin_header_style' ) ) :
+if ( ! function_exists( 'foggedclarity_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see digistarter_custom_header_setup().
+ * @see foggedclarity_custom_header_setup().
  */
-function digistarter_admin_header_style() {
+function foggedclarity_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -105,15 +105,15 @@ function digistarter_admin_header_style() {
 	</style>
 <?php
 }
-endif; // digistarter_admin_header_style
+endif; // foggedclarity_admin_header_style
 
-if ( ! function_exists( 'digistarter_admin_header_image' ) ) :
+if ( ! function_exists( 'foggedclarity_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see digistarter_custom_header_setup().
+ * @see foggedclarity_custom_header_setup().
  */
-function digistarter_admin_header_image() {
+function foggedclarity_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -125,4 +125,4 @@ function digistarter_admin_header_image() {
 	</div>
 <?php
 }
-endif; // digistarter_admin_header_image
+endif; // foggedclarity_admin_header_image

@@ -1,8 +1,8 @@
 <?php
 /**
- * digistarter functions and definitions
+ * foggedclarity functions and definitions
  *
- * @package digistarter
+ * @package foggedclarity
  */
 
 /**
@@ -12,7 +12,7 @@ if ( ! isset( $content_width ) ) {
 	$content_width = 1000; /* pixels */
 }
 
-if ( ! function_exists( 'digistarter_setup' ) ) :
+if ( ! function_exists( 'foggedclarity_setup' ) ) :
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -20,15 +20,15 @@ if ( ! function_exists( 'digistarter_setup' ) ) :
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function digistarter_setup() {
+function foggedclarity_setup() {
 
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on digistarter, use a find and replace
-	 * to change 'digistarter' to the name of your theme in all the template files
+	 * If you're building a theme based on foggedclarity, use a find and replace
+	 * to change 'foggedclarity' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'digistarter', get_template_directory() . '/library/languages' );
+	load_theme_textdomain( 'foggedclarity', get_template_directory() . '/library/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -58,7 +58,7 @@ function digistarter_setup() {
 	if ( !function_exists('dg_register_nav_menus') ) :
 		function dg_register_nav_menus() {
 
-			register_nav_menu( 'primary-navigation', __( 'Primary Menu', 'digistarter' ) );
+			register_nav_menu( 'primary-navigation', __( 'Primary Menu', 'foggedclarity' ) );
 
 		}
 		add_action( 'init', 'dg_register_nav_menus' );
@@ -68,21 +68,21 @@ function digistarter_setup() {
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link', 'status', 'gallery', 'chat', 'audio' ) );
 
 	// Setup the WordPress core custom background feature.
-	add_theme_support( 'custom-background', apply_filters( 'digistarter_custom_background_args', array(
+	add_theme_support( 'custom-background', apply_filters( 'foggedclarity_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 }
-endif; // digistarter_setup
-add_action( 'after_setup_theme', 'digistarter_setup' );
+endif; // foggedclarity_setup
+add_action( 'after_setup_theme', 'foggedclarity_setup' );
 
 /**
  * Register widgetized area and update sidebar with default widgets.
  */
-if ( !function_exists('digistarter_widgets_init') ) :
-	function digistarter_widgets_init() {
+if ( !function_exists('foggedclarity_widgets_init') ) :
+	function foggedclarity_widgets_init() {
 		register_sidebar( array(
-			'name'          => __( 'Sidebar', 'digistarter' ),
+			'name'          => __( 'Sidebar', 'foggedclarity' ),
 			'id'            => 'sidebar-1',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</aside>',
@@ -90,20 +90,21 @@ if ( !function_exists('digistarter_widgets_init') ) :
 			'after_title'   => '</h4>',
 		) );
 	}
-	add_action( 'widgets_init', 'digistarter_widgets_init' );
+	add_action( 'widgets_init', 'foggedclarity_widgets_init' );
 endif;
 
 /**
  * Enqueue scripts and styles.
  */
-if ( !function_exists('digistarter_scripts') ) :
-	function digistarter_scripts() {
+if ( !function_exists('foggedclarity_scripts') ) :
+	function foggedclarity_scripts() {
 		if (!is_admin()) {
 			wp_enqueue_script('jquery');
 		}
 
 		// Main Style
-		wp_enqueue_style( 'digistarter-style', get_stylesheet_uri() );
+		// wp_enqueue_style( 'foggedclarity-style', get_stylesheet_uri() );
+		wp_enqueue_style( 'foggedclarity-style', get_template_directory_uri() . '/dist/styles/style.min.css' );
 
 		// Dashicons
 		wp_enqueue_style( 'dashicons', get_stylesheet_directory_uri() . '/library/assets/css/dashicons.css' );
@@ -128,7 +129,7 @@ if ( !function_exists('digistarter_scripts') ) :
 			wp_enqueue_script( 'comment-reply' );
 		}
 	}
-	add_action( 'wp_enqueue_scripts', 'digistarter_scripts' );
+	add_action( 'wp_enqueue_scripts', 'foggedclarity_scripts' );
 endif;
 
 /**

@@ -4,7 +4,7 @@
  *
  * Contains the closing of the #content div and all content after
  *
- * @package digistarter
+ * @package foggedclarity
  */
 ?>
 		<?php tha_content_bottom(); ?>
@@ -20,11 +20,12 @@
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('fc_footer_center') ) : endif; ?>
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('fc_footer_right') ) : endif; ?>
 				
-				<!-- <a href="http://wordpress.org/" rel="generator"><?php //printf( __( 'Proudly powered by <span class="genericon genericon-wordpress"></span> %s', 'digistarter' ), 'WordPress' ); ?></a>
+				<!-- <a href="http://wordpress.org/" rel="generator"><?php //printf( __( 'Proudly powered by <span class="genericon genericon-wordpress"></span> %s', 'foggedclarity' ), 'WordPress' ); ?></a>
 				<span class="sep"> | </span> -->
 
 			</div><!-- end .site-info -->
 			<?php tha_footer_bottom(); ?>
+			<div class="copy"><p>All work &copy; respective artists</p></div>
 		</footer>
 
 	</div><!-- end .wrap -->

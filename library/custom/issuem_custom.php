@@ -213,8 +213,7 @@ if ( !function_exists( 'do_fc_issuem_contributors' ) ) {
     $author_list = array();
     $authors_array = array();
 
-    // TODO :: echo current issue title here
-    echo '<h3>' . get_issuem_issue_title() . '</h3>';
+    //echo '<h3>' . get_issuem_issue_title() . '</h3>';
 
     foreach( $articles as $article ) {
       $author_name = get_issuem_author_name( $article );
@@ -481,6 +480,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
         $val_name;
         $output = '';
         global $music_count;
+        global $essay_count;
         
         switch ($cat_key) {
           case "Visual Art":
@@ -510,19 +510,26 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
             $cat_name = "fc_interview";
             $val_name = "Interviews";
             break;
+          case "Essays &amp; Nonfiction":
           case "Nonfiction":
           case "Polemics":
             $cat_name = "fc_nonfiction";
             $val_name = "Nonfiction";
+            $essay_count++;
             break;
           default: // defaults to fc green
             $cat_name = "fc_poetry";
             $val_name = "Poetry";
         }
 
-        if($cat_name === "fc_music") {
+        if( $cat_name === "fc_music" ) {
           // special case since multiple categories are included under 'music' and we only want one filter for 'music'
-          if($music_count === 1) {
+          if( $music_count === 1 ) {
+            $output = "<label><input type='radio' name='filter-group' value='$val_name'>";
+            $output .= "<span class='filter-group-item $cat_name'>$val_name</span></label>";
+          }
+        } else if ( $cat_name === "fc_nonfiction" ) {
+          if( $essay_count === 1 ) {
             $output = "<label><input type='radio' name='filter-group' value='$val_name'>";
             $output .= "<span class='filter-group-item $cat_name'>$val_name</span></label>";
           }
@@ -534,6 +541,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
       }
 
       foreach ($cat_filter_list as $cat_key => $cat_val) {
+        //wp_print_r( $cat_key );
         if ($cat_val > 0) {
           $main_results .= print_filter_category($cat_key);
         }
@@ -575,14 +583,14 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
         if ( has_post_thumbnail( $article->ID ) ) {
           // get the featured image
           $post_img = wp_get_attachment_url( get_post_thumbnail_id( $article->ID) );
-          $wrap_results = '<div class="issuem_article has_image lrg podcast article-' . $article->ID . '" style="background-image:url(\'' . $post_img . '\');">';
+          $wrap_results = '<div class="issuem_article has_image lrg podcast article-' . $article->ID . '" style="background-image:url(\'' . $post_img . '\'); background-size: cover;">';
         } else if ( has_shortcode( $article->post_content, 'gallery' ) ) {
           // get the first image out of the gallery
           $gallery = get_post_gallery_images( $article );
           $gallery_img = $gallery[0];
           if ( $gallery_img ) {
               // has image
-              $wrap_results = '<div class="issuem_article has_image article-' . $article->ID . '" style="background-image:url(\'' . $gallery_img . '\');">';
+              $wrap_results = '<div class="issuem_article has_image article-' . $article->ID . '" style="background-image:url(\'' . $gallery_img . '\'); background-size: cover;">';
           }
         } else {
           // get the first embedded image in the content
@@ -608,7 +616,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
 
           if ( $first_img ) {
               // has image
-              $wrap_results = '<div class="issuem_article has_image article-' . $article->ID . '" style="background-image:url(\'' . $first_img . '\');">';
+              $wrap_results = '<div class="issuem_article has_image article-' . $article->ID . '" style="background-image:url(\'' . $first_img . '\'); background-size: 200px 200px;">';
           }
         }
 
@@ -635,6 +643,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
           case "Interviews":
             $fc_cat_class = "fc_interview";
             break;
+          case "Essays &amp; Nonfiction":
           case "Nonfiction":
           case "Polemics":
             $fc_cat_class = "fc_nonfiction";

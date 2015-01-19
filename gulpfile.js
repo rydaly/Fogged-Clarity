@@ -1,6 +1,7 @@
 // Load plugins
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
+    sourcemaps = require('gulp-sourcemaps'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
@@ -10,22 +11,22 @@ var gulp = require('gulp'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
-    cache = require('gulp-cache'),
-    livereload = require('gulp-livereload');
+    cache = require('gulp-cache');
+    // livereload = require('gulp-livereload');
 
 // Styles
 gulp.task('styles', function() {
   return gulp.src('library/assets/sass/style.scss')
-    .pipe(sass({ style: 'expanded', }))
-    // .pipe(autoprefixer('last 2 versions', '> 1%', 'Firefox ESR', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
+    .pipe(sourcemaps.init())
+    .pipe(sass({ style: 'compact', }))
     .pipe(autoprefixer('> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1', 'ie 8', 'ie 9', 'ios 6', 'android 4'))
     .pipe(gulp.dest('./'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(minifycss())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/styles'))
     .pipe(notify({ message: 'Styles task complete' }));
 });
-
 // Scripts
 gulp.task('scripts', function() {
   return gulp.src('library/assets/js/**/*.js')
@@ -71,11 +72,11 @@ gulp.task('watch', function() {
   gulp.watch('src/images/**/*', ['images']);
 
   // Create LiveReload server
-  var server = livereload();
+  // var server = livereload();
 
   // Watch any files in dist/, reload on change
-  gulp.watch(['dist/**']).on('change', function(file) {
-    server.changed(file.path);
-  });
+  // gulp.watch(['dist/**']).on('change', function(file) {
+  //   server.changed(file.path);
+  // });
 
 });

@@ -1,58 +1,9 @@
-/*
-
-plugin website : http://mediaelementjs.com/
-
-*/
-
-/* ------------------------------------------------------------------------ */
-/* $CONTENTS
-/* ------------------------------------------------------------------------ */
-
-/*
-
-    01. $GENERALS
-
-            1.1. $FULLSCREEN MODE
-            1.2. $EMBEDED VIDEO MODE
-            1.3. $MISC
-
-    02. $MEDIAELEMENT CONTAINER
-
-            2.1. $INNER CONTAINER
-
-                    2.1.1. $VIDEO WRAPPER 
-
-                    2.1.2. $OVERLAYS ( POSTER ) WRAPPER 
-
-                                2.1.2.1 $POSTER
-                                2.1.2.2 $LOADER
-                                2.1.2.3 $OVERLAY PLAY
-
-                    2.1.3. $CONTROLS CONTAINER 
-
-                                2.1.3.1 $PLAY / PAUSE / STOP
-                                2.1.3.2 $CURRENT TIME
-                                2.1.3.3 $TIME RAIL
-                                2.1.3.4 $TOTAL TIME
-                                2.1.3.5 $VOLUME
-                                2.1.3.6 $SOURCECHOOSER
-                                2.1.3.7 $FULLSCREEN
-
-                    2.1.4. $CLEARER
-
-*/
-
-/* ------------------------------------------------------------------------ */
-/* $GENERALS
-/* ------------------------------------------------------------------------ */
-
 .powerpress_player * {
     outline: none;
 }
 .powerpress_player {
     @include clearfix;
-    @include span-columns(10);
-    @include shift(1);
+    width: 100%;
     margin-bottom: 5em;
     outline: none;
     /* replace the controls bar height */
@@ -580,29 +531,6 @@ plugin website : http://mediaelementjs.com/
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-/*
-
-plugin website : http://mediaelementjs.com/
-
-*/
-
-/* ------------------------------------------------------------------------ */
-/* $CONTENTS
-/* ------------------------------------------------------------------------ */
-
-/*
-
-    01. $CONTENTS
-    02. $TRANSPARENT
-    03. $BLACK ( #000 )
-    04. $WHITE ( #FFF )
-    05. $DARK GREY ( $dark-gray )
-    06. $LIGHT GREY ( $light-gray )
-    08. $GREEN ( $fc-green )
-    12. $BACKGROUND IMAGES
-
-*/
-
 $highlight-color: $fc-green;
 
 /* ------------------------------------------------------------------------ */
@@ -714,14 +642,14 @@ $highlight-color: $fc-green;
     /* ------------------------------------------------------------------------ */
     /* loader button */
     .mejs-overlay-loading span {
-        background-image: url(images/mediaelement/spinner-white.gif);
+        background-image: url(../images/mediaelement/spinner-white.gif);
     }
     /* big play button */
     .mejs-overlay-button {
-        background-image: url(images/mediaelement/play-white.png);
+        background-image: url(../images/mediaelement/play-white.png);
     }
     /* controls buttons */
     .mejs-button button {
-        background-image: url(images/mediaelement/controls-white.png);
+        background-image: url(../images/mediaelement/controls-white.png);
     }
 }

@@ -1,0 +1,106 @@
+$base-spacing: 1.5em !default;
+$pagination-border-color: $light-gray;
+$pagination-border: 1px solid $pagination-border-color;
+$pagination-background: white;
+$pagination-hover-background: $light-gray;
+$pagination-color: $base-font-color;
+
+nav.navigation {
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 0.9em;
+  margin-top: 5em;
+
+  .wp-pagenavi, .nav-links {
+    .prev_post_link, .next_post_link {
+      display: inline-block;
+    }
+
+    span {
+      display: none;
+    }
+
+    a {
+      display: none;
+
+      @include media($medium-screen) {
+        display: inline-block;
+      }
+    }
+
+    span, a {
+      @include transition (all 0.1s ease-in-out);
+      background: $pagination-background;
+      border: $pagination-border;
+      color: $pagination-color;
+      padding: 4px 17px;
+
+      &:hover, &:focus {
+        background: $pagination-hover-background;
+        color: $fc-green;
+      }
+
+      &.current {
+        display: inline-block;
+        background: darken( $pagination-hover-background, 5 );
+        color: $medium-gray;
+      }
+
+      &.previouspostslink {
+        float: left;
+      }
+
+      &.nextpostslink {
+        float: right;
+      }
+
+      &.previouspostslink, &.nextpostslink {
+        display: inline-block;
+        font-family: $sans-serif;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-top: 4px;
+        padding-bottom: 4px;
+
+        @include media($medium-screen) {
+          float: none;
+        }
+      }
+
+      &.pages, &.extend, &.first, &.last {
+        display: none;
+        visibility: hidden;
+      }
+    }
+  }
+}
+
+.comments-area, .navigation, .post-navigation {
+  margin-bottom: 5em;
+}
+
+// .post-navigation {
+//   .nav-links {
+//     width: 100%;
+//     margin: 0 auto;
+//     position: relative;
+//     @include outer-container;
+
+//     a, div.js-btn {
+//       @include span-columns(4);
+//       background: $light-gray;
+//     }
+//     a[rel~="prev"] {
+//       text-align: left;
+//     }
+//     .js-btn {
+//       text-align: center;
+//     }
+//     // a[rel~="toc"] {
+//     //  text-align: center;
+//     // }
+//     a[rel~="next"] {
+//       text-align: right;
+//     }
+//   }
+// }

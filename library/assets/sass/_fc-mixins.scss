@@ -25,7 +25,8 @@
 @mixin fc_button($bordercolor, $textcolor, $hovercolor, $texthovercolor) {
     font-family: $sans-serif;
     font-size: 1em;
-    font-weight: 500;
+    text-transform: uppercase;
+    font-weight: 700;
     color: $textcolor;
     line-height: 1.2em;
     text-align: center;
@@ -42,10 +43,14 @@
         background: $hovercolor;
         border: 3px solid $texthovercolor;
         border-radius: 0;
-        @include transition(all $default-anim-time ease-in-out);
+        @include transition(all 0.1s ease-in-out);
     }
 }
 
 @mixin fc_cat_back_color($color) {
     background-color: desaturate($color, 10);
+}
+
+@mixin grid-item-columns($columns) {
+  width: (100% / 12) * $columns;
 }

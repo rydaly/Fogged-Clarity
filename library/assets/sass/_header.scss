@@ -35,7 +35,7 @@ $header-module-height: 350px;
  */
 .hero-main {
   $hero-color: $medium-gray;
-  height: 350px;
+  height: auto;
   .hero-logo img {
   	width: 156px;
   	height: 156px;
@@ -49,37 +49,19 @@ $header-module-height: 350px;
     color: $hero-color;
     .hero-copy {
       h1 {
-        font-size: 1.6em;
+        font-size: 2.6em;
         margin-top: .2em;
         margin-bottom: .2em;
         font-family: $georgia;
         text-transform: none;
         font-weight: 100;
-        @include media($sm) {
-          font-size: 1.6em;
-        }
-        @include media($smbg) {
-          font-size: 2.2em;
-        }
-        @include media($md) {
-          font-size: 2.5em;
-        }
-        @include media($hg) {
-          font-size: 3em;
-        }
       }
-      p {
-        font-family: $sans-serif;
-        font-size: 1.5em;
-        color: $medium-gray;
-        margin: auto;
-        margin-top: .1em;
+
+      h3 {
         font-weight: 400;
-        line-height: 1.4em;
-        @include media($md) {
-          font-size: 1.5em;
-          max-width: 40%;
-        }
+        color: $medium-gray;
+        line-height: 0.7em;
+        margin-bottom: 1em;
       }
     }
   }
@@ -119,6 +101,7 @@ $header-module-height: 350px;
     }
     .issuem-flexslider {
       @include background(url($bg-image) top left repeat);
+      background-size: 500px 300px;
     	.slides img {
 	      @include fill-parent;
   			// max-height: $header-module-height;
@@ -145,37 +128,51 @@ $header-module-height: 350px;
       z-index: 10;
       cursor: pointer;
       text-indent: -9999px;
-      opacity: 0;
-      @include filter(blur(10px));
+      opacity: 0.5;
+      background: none;
+      // @include filter(blur(0px));
       @include transition(all $default-anim-time ease-in-out);
-    }
-    .flex-direction-nav a {
-    	background: none;
+
+      @include media( $large-screen ) {
+        opacity: 0;
+        // @include filter(blur(10px));
+      }
     }
     .flex-direction-nav .flex-next {
-      background: url(images/nav_right.png) no-repeat 0 0;
+      background: url(../images/nav_right.png) no-repeat 0 0;
+      background-size: 23px 40px;
       background-position: 100% 0;
-      right: -50px;
       text-align: left;
+      right: 14px;
+
+      @include media( $large-screen ) {
+        right: -50px;
+      }
     }
     .flex-direction-nav .flex-prev {
-      background: url(images/nav_left.png) no-repeat 0 0;
-      left: -50px;
+      background: url(../images/nav_left.png) no-repeat 0 0;
+      background-size: 23px 40px;
+      left: 14px;
+
+      @include media( $large-screen ) {
+        left: -50px;
+      }
     }
     .issuem-flexslider:hover {
     	.flex-next {
-	      @include filter(blur(0px));
-	      opacity: 1;
-	      right: 14px;
+        @include media( $large-screen ) {
+          // @include filter(blur(0px));
+          opacity: 1;
+          right: 14px;
+        }
     	}
     	.flex-prev {
-	      @include filter(blur(0px));
-	      opacity: 1;
-	      left: 14px;
+        @include media( $large-screen ) {
+          // @include filter(blur(0px));
+          opacity: 1;
+          left: 14px;
+        }
     	}
-    	// .flex-caption {
-    	// 	opacity: 1;
-    	// }
     }
     .flex-control-paging {
     	bottom: -40px;
@@ -295,7 +292,7 @@ $header-module-height: 350px;
         font-size: 0.8em;
         margin-bottom: 0.3em;
         display: inline-block;
-        padding: 2px 4px;
+        padding: 1px 4px 3px;
 
 	      @include media($medium-screen) {
 	      	font-size: 0.8em;
@@ -339,6 +336,8 @@ $header-module-height: 350px;
         }
       }
       .featured_slider_teaser {
+        display: inline-block;
+        max-width: 60%;
       	font-family: $serif;
       	font-style: italic;
       	font-weight: 500;

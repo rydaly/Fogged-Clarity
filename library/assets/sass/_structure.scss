@@ -1,6 +1,6 @@
 /* =Structure/Scaffolding
 -------------------------------------------------------------- */
-$bg-image: 'images/bg.png';
+$bg-image: '../images/bg.png';
 
 // default styling
 html {
@@ -8,8 +8,8 @@ html {
 }
 body {
 	@include fontSize(16px);
-	// @include background(url($bg-image) top left repeat fixed);
 	@include background(url($bg-image) top left repeat);
+  background-size: 500px 300px;
 	font-family: $serif;
 	word-break: break-word;
 }
@@ -30,15 +30,6 @@ html, body {
 	@include clearfix;
 	margin: auto;
 	width: 100%;
-
-	ul {
-		list-style: none;
-
-		li {
-			list-style-type: square;
-		}
-	}
-
 }
 #secondary {
 	margin: 20px auto;

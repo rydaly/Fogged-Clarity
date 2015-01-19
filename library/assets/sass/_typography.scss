@@ -81,12 +81,12 @@ cite {
 	font-style: italic;
 }
 a, a:visited {
-	@include transition (all 0.1 ease-in-out);
+	@include transition (all 0.1s ease-in-out);
 	color: #666;
 	text-decoration: none;
 
 	&:hover {
-		@include transition (all 0.1 ease-in-out);
+		@include transition (all 0.1s ease-in-out);
 		color: $fc-green;
 	}
 }
@@ -99,5 +99,15 @@ ol {
 #primary,
 #secondary {
 	font-family: $content;
+}
+.wf-loading {
+	visibility: hidden;
+	// opacity: 0;
+	// @include transition (opacity 0.1s ease-in-out);
+}
+.wf-active {
+	visibility: visible;
+	// opacity: 1;
+	// @include transition (opacity 0.1s ease-in-out);
 }
 

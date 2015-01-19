@@ -7,7 +7,7 @@ Description: A theme based on 'Some Like it Neat' using _S, Bourbon and Neat (ht
 Version: 1.0
 License: GNU General Public License
 License URI: license.txt
-Text Domain: digistarter
+Text Domain: foggedclarity
 Domain Path: /languages/
 Tags: white, light, one-column, responsive-layout, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, sticky-post, translation-ready
 
@@ -45,7 +45,14 @@ and Blueprint http://www.blueprintcss.org/
 @import "modules/genericons";
 @import "fc-mixins";
 @import "fc-legacy";
+@import "fc-pagenavi";
 @import "fc-popularposts";
+@import "fc-submit-page";
+@import "fc-about-page";
+@import "fc-contributors-page";
+@import "fc-contact-page";
+@import "fc-blog-page";
+@import "fc-notfound-page";
 @import "header";
 @import "navigation";
 @import "sidebar";
