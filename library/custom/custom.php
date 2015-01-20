@@ -1,28 +1,4 @@
 <?php
-
-/**
- * Maintenance !! diable this and change flags in config.php
- */
-
-// add_action('wp_loaded', function() {
-//     global $pagenow;
-//     if(
-//        defined('IN_MAINTENANCE')
-//        && IN_MAINTENANCE
-//        && $pagenow !== 'wp-login.php'
-//        && ! is_user_logged_in()
-//     ) {
-//        header('HTTP/1.1 Service Unavailable', true, 503);
-//        header('Content-Type: text/html; charset=utf-8');
-//        if ( file_exists(WP_CONTENT_DIR . '/maintenance.php') ) {
-//           require_once( WP_CONTENT_DIR . '/maintenance.php' );
-//        }
-//        die();
-//     }
-// });
-
-
-
 /**
  * HEAD
  */
@@ -65,7 +41,7 @@ add_action( 'wp_head', 'fc_wp_head' );
 
 
 /**
- * Dequeue and enqueue some things
+ * Scripts and Styles 
  */
 function fc_handle_scripts_and_styles() {
   wp_dequeue_style('mediaelement');
@@ -81,10 +57,10 @@ function fc_handle_scripts_and_styles() {
 add_action( 'wp_enqueue_scripts', 'fc_handle_scripts_and_styles', 1 );
 
 // grab production css instead of default
-// function fc_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
-//     return $stylesheet_dir_uri . '/dist/styles/style.min.css';
-// }
-// add_filter( 'stylesheet_uri', 'fc_stylesheet_uri', 1, 2 );
+function fc_stylesheet_uri( $stylesheet_uri, $stylesheet_dir_uri ) {
+    return $stylesheet_dir_uri . '/dist/styles/style.min.css';
+}
+add_filter( 'stylesheet_uri', 'fc_stylesheet_uri', 1, 2 );
 
 
 
@@ -190,7 +166,6 @@ function fc_header_top() { ?>
 
   <!-- primary navigation -->
   <nav class="js-menu sliding-menu-content">
-    
     <!-- Menu items -->
     <?php
       // get_search_form();
@@ -202,20 +177,14 @@ function fc_header_top() { ?>
         )
       );
     ?>
-    
     <!-- background -->
     <div class="js-menu-screen menu-screen"></div>
-
   </nav>
-
-
 <?php }
-
 add_action( 'tha_header_top', 'fc_header_top' );
 
 function fc_header_bottom() {
   // wp_print_r ( get_current_type() );
-  
   if( is_front_page() || get_current_type() === "tax" ) { ?>
     <div class="hero hero-carousel">
       <div class="feature-rotator">
@@ -234,7 +203,6 @@ function fc_header_bottom() {
     }
   }
 }
-
 add_action( 'tha_header_bottom', 'fc_header_bottom' );
 
 
@@ -256,17 +224,8 @@ add_filter('wp_nav_menu_items','add_search_box_to_menu', 10, 2);
  * Add popular posts box above footer
  *
  */
-
 function fc_footer_before() {
   if( is_page() ) {
-    // $output  = '<div class="popular-module">';
-    // $output .= '<h2>Popular on Fogged Clarity</h2>';
-    // $output .= '<div class="buttons"><div class="button most-shared">Most Shared</div>';
-    // $output .= '<div class="button most-read">Most Read</div></div>';
-    // $output .= '<ul class="most-shared-list"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>';
-    // $output .= '<ul class="most-read-list"><li>Item 1</li><li>Item 2</li><li>Item 3</li><li>Item 4</li><li>Item 5</li></ul>';
-    // $output .= '</div>';
-    // echo $output;
     if( function_exists( 'tptn_show_pop_posts' ) ) tptn_show_pop_posts();
   }
 }
@@ -278,7 +237,6 @@ add_action( 'tha_footer_before', 'fc_footer_before');
  * Add Google Analytics tracking
  *
  */
-
 function fc_footer_after() { ?>
   <script type="text/javascript">
     var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
@@ -296,10 +254,9 @@ add_action( 'tha_footer_after', 'fc_footer_after' );
 
 
 /**
- * Embed disqus comments
+ * Embed disqus comments system
  *
  */
-
 function disqus_embed($disqus_shortname) {
   global $post;
   wp_enqueue_script('disqus_embed','http://'.$disqus_shortname.'.disqus.com/embed.js');
@@ -316,9 +273,8 @@ function disqus_embed($disqus_shortname) {
 
 /**
  * Remove default Jetpack sharing buttons ( adding to tha_entry_bottom )
- *
+ * Add sharedaddy scripts manually 
  */
-
 function jetpack_remove_share() {
   remove_filter( 'the_content', 'sharing_display', 19 );
   remove_filter( 'the_excerpt', 'sharing_display', 19 );
@@ -326,38 +282,18 @@ function jetpack_remove_share() {
       remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
   }
 }
- 
 add_action( 'loop_start', 'jetpack_remove_share' );
 
-// get sharedaddy scripts manually
+// get jetpack sharedaddy scripts manually
 function fc_add_sharedaddy() {
   wp_enqueue_script( 'sharing-js', WP_SHARING_PLUGIN_URL . 'sharing.js', array( ), 3 );
   $sharing_js_options = array(
-    'lang'   => get_base_recaptcha_lang_code(),
+    // 'lang'   => get_base_recaptcha_lang_code(),
     'counts' => apply_filters( 'jetpack_sharing_counts', true )
   );
   wp_localize_script( 'sharing-js', 'sharing_js_options', $sharing_js_options);
 }
-
-// add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
-
-function jetpack_remove_styles() {
-  // wp_deregister_style('AtD_style'); // After the Deadline
-  // wp_deregister_style('jetpack-carousel'); // Carousel
-  // wp_deregister_style('grunion.css'); // Grunion contact form
-  // wp_deregister_style('the-neverending-homepage'); // Infinite Scroll
-  // wp_deregister_style('infinity-twentyten'); // Infinite Scroll - Twentyten Theme
-  // wp_deregister_style('infinity-twentyeleven'); // Infinite Scroll - Twentyeleven Theme
-  // wp_deregister_style('infinity-twentytwelve'); // Infinite Scroll - Twentytwelve Theme
-  // wp_deregister_style('noticons'); // Notes
-  // wp_deregister_style('post-by-email'); // Post by Email
-  // wp_deregister_style('publicize'); // Publicize
-  // wp_deregister_style('sharedaddy'); // Sharedaddy
-  // wp_deregister_style('sharing'); // Sharedaddy Sharing
-  // wp_deregister_style('stats_reports_css'); // Stats
-  // wp_deregister_style('jetpack-widgets'); // Widgets
-}
-add_action('wp_print_styles', 'jetpack_remove_styles');
+add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
 
 
 
@@ -400,26 +336,6 @@ function get_current_type() {
   return $current_type;
 }
 
-// trims the title to prevent really long titles from ruining layout
-// function fc_title_trim($before = '', $after = '', $length = false) { 
-
-//   $title = get_the_title();
-
-//   // check for valid input
-//   if ( $length && is_numeric($length) ) {
-//     // compare title length to input
-//     if ( strlen($title) > $length ) {
-//       // perform trim and return
-//       $pos = strpos( $title, ' ', $length );
-//       $title = substr( $title, 0, $pos );
-//       $title = apply_filters('fc_title_trim', $before . $title . $after, $before, $after);
-//       return $title;
-//     } else {
-//       return $title;
-//     }
-//   }
-// }
-
 
 
 /**
@@ -427,10 +343,6 @@ function get_current_type() {
  */
 
 function fc_widgets_init() {
-  /**
-  * Creates a sidebar
-  * @param string|array  Builds Sidebar based off of 'name' and 'id' values.
-  */
   $args_left = array(
     'name'          => __( 'Footer Left', 'fogged_clarity' ),
     'id'            => 'fc_footer_left',
@@ -464,8 +376,10 @@ function fc_widgets_init() {
 }
 add_action( 'widgets_init', 'fc_widgets_init' );
 
+
+
 /**
- * plugins to make WordPress faster
+ * make WordPress faster
  */
 
 // remove query strings from static resources so they get cached
@@ -475,13 +389,14 @@ function ewp_remove_script_version( $src ){
 add_filter( 'script_loader_src', 'ewp_remove_script_version', 15, 1 );
 add_filter( 'style_loader_src', 'ewp_remove_script_version', 15, 1 );
 
+
+
 /**
- * plugins to make WordPress client friendly
+ * make WordPress client friendly
  */
 
 // custom login page
 function custom_login_css() {
-  // echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo( 'stylesheet_directory' ) . '/library/assets/css/custom-login.min.css" />';
   echo '<link rel="stylesheet" type="text/css" href="' . get_stylesheet_directory_uri() . '/library/assets/css/custom-login.min.css" />';
 }
 add_action('login_head', 'custom_login_css');
@@ -510,7 +425,7 @@ add_filter('admin_footer_text', 'remove_footer_admin');
 // hide some annoying shit
 function fc_hide_admin_nags() {
   echo '<style>
-  #issuem_rss_item, .cf7com-links, #welcome-panel {
+  #issuem_rss_item, #welcome-panel {
     display: none;
     visibility: hidden;
   }
