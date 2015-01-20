@@ -117,7 +117,7 @@ function fc_header_top() { ?>
   <header class="top-bar">
     <div class="top-bar-wrapper">
       <a class="bar-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>">
-        <img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo_sm.png" width="55" height="55" alt="fc logo">
+        <img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo_sm.png" width="55" height="55" alt="fc logo">
         <p class="logo-copy"><?php bloginfo( 'name' ); ?></p>
       </a>
       <!-- <i class="fa fa-list-ul"></i> -->
@@ -134,7 +134,7 @@ function fc_header_top() { ?>
     if( is_front_page() || get_current_type() === "tax" ) { ?>
       <div class="hero hero-main" data-speed="1.6" data-type="scroll">
         <div class="hero-inner">
-          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
+          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
           <div class="hero-copy">
             <h1 class="blog-name"><?php bloginfo( 'name' ); ?></h1>
               <hr class="divider">
@@ -146,7 +146,7 @@ function fc_header_top() { ?>
     } else { ?>
       <div class="hero hero-main hero-sm" data-speed="1.6" data-type="scroll">
         <div class="hero-inner">
-          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
+          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
         </div>
       </div>
   <?php
@@ -186,7 +186,7 @@ add_action( 'tha_header_top', 'fc_header_top' );
 function fc_header_bottom() {
   // wp_print_r ( get_current_type() );
   if( is_front_page() || get_current_type() === "tax" ) { ?>
-    <div class="hero hero-carousel">
+    <div class="hero hero-carousel loading">
       <div class="feature-rotator">
         <?php echo do_shortcode('[issuem_featured_rotator]'); ?>
       </div>

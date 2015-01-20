@@ -93,6 +93,11 @@ $header-module-height: 350px;
   @include media($hg) { // >= 1140
   	min-height: 464px;
   }
+  
+  &.loading {
+    background: url( ../images/loader_grey.gif ) no-repeat center center;
+    background-size: 32px 32px;
+  }
 
   /* Customize issuem flex slider */
   #issuem-featured-article-slideshowholder {
@@ -100,8 +105,9 @@ $header-module-height: 350px;
       max-height: 400px;
     }
     .issuem-flexslider {
-      @include background(url($bg-image) top left repeat);
-      background-size: 500px 300px;
+      background: transparent;
+      // @include background(url($bg-image) top left repeat);
+      // background-size: 500px 300px;
     	.slides img {
 	      @include fill-parent;
   			// max-height: $header-module-height;

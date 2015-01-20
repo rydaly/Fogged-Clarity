@@ -606,7 +606,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
           // otherwise, define a random default image
           if(empty($first_img)) {
             $theme_root = get_theme_root();
-            $imgdir = '/fogged-clarity/images/default_post_imgs/';
+            $imgdir = '/fogged-clarity/dist/images/default_post_imgs/';
             $file_path = $theme_root . $imgdir;
             $imgs = glob($file_path . '*.{jpg,jpeg,png,gif}', GLOB_BRACE);
             $first_img = $imgs[array_rand($imgs)];
