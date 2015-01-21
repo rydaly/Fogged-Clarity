@@ -1,5 +1,5 @@
 /* JetPack / Sharedaddy Social Buttons */
- 
+
 div.sharedaddy div.sd-block {
   @include clearfix;
   display: block;
@@ -13,8 +13,6 @@ div.sharedaddy div.sd-block {
   }
 
   .sd-content {
-    // border-bottom: 1px solid lighten($medium-gray, 35);
-    // border-top: 1px solid lighten($medium-gray, 35);
     display: block;
 
     span.sharing-screen-reader-text {
@@ -27,8 +25,7 @@ div.sharedaddy div.sd-block {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      min-width: 440px;
-      
+
       li {
         // position: relative;
         display: inline-block;
@@ -39,7 +36,7 @@ div.sharedaddy div.sd-block {
         max-width: 110px;
         min-width: 100px;
         @include transition(all 0.1s $easing-func);
-        
+
         a {
           color: $medium-gray;
           font-size: 10px;
@@ -52,7 +49,7 @@ div.sharedaddy div.sd-block {
             @include transition(all 0.1s $easing-func);
           }
         }
-        
+
         a.share-email {
           @include icon(before, "\f003") {
             font-size: 1.2em;
@@ -184,13 +181,13 @@ div.sharedaddy div.sd-block {
     }
 
     li.share-end {
-      display: none; 
+      display: none;
       visibility: hidden;
     }
-    
+
     .sharing-hidden {
       // @include span-columns(12);
-      
+
       .inner {
         // @include span-columns(12);
 
@@ -207,96 +204,3 @@ div.sharedaddy div.sd-block {
     }
   }
 }
- 
-// div.sharedaddy a.sd-button {
-//   border: none !important;
-//   box-shadow: none;
-// }
- 
-// .sd-social-icon-text a.sd-button > span, a.sd-button > span {
-//   opacity: 1;
-//   padding: 4px 10px;
-//   padding: .4rem 1rem;
-// }
- 
-// li.share-facebook a.sd-button > span,
-// li.share-google-plus-1 a.sd-button > span,
-// li.share-tumblr a.sd-button > span,
-// li.share-pinterest a.sd-button > span,
-// li.share-twitter a.sd-button > span,
-// li.share-pocket a.sd-button > span {
-//   border: none;
-//   color: #fff;
-//   font-family: 'verdana', arial;
-//   font-size: 6px;
-//   font-size: .6rem;
-//   font-weight: 300;
-//   letter-spacing: 0;
-//   text-transform: uppercase;
-// }
- 
-// li.share-facebook a.sd-button > span {
-//   background: #4965a0;
-// }
- 
-// li.share-facebook a.sd-button:hover > span {
-//   background: #1e73be;
-// }
- 
-// li.share-twitter a.sd-button > span {
-//   background: #55ACEE;
-// }
- 
-// li.share-twitter a.sd-button:hover > span {
-//   background: #1e73be;
-// }
- 
-// li.share-google-plus-1 a.sd-button > span {
-//   background: #dd4b39;
-// }
- 
-// li.share-google-plus-1 a.sd-button:hover > span {
-//   background: #1e73be;
-// }
- 
-// li.share-tumblr a.sd-button > span {
-//   background: #35465D;
-// }
- 
-// li.share-tumblr a.sd-button:hover > span {
-//   background: #1e73be;
-// }
- 
-// li.share-pocket a.sd-button > span {
-//   background: #F15367;
-// }
- 
-// li.share-pocket a.sd-button:hover > span {
-//   background: #1e73be
-// }
- 
-// li.share-pinterest a.sd-button > span {
-//   background: #D5222A;
-// }
- 
-// li.share-pinterest a.sd-button:hover > span {
-//   background: #1e73be;
-// }
- 
-// .sd-content .sd-button span.share-count {
-//   color: #fff !important;
-//   font-size: 100% !important;
-// }
- 
-// .sd-button span.share-count { /* Disable Counters */
-//   display: none;
-// }
- 
-// div.sharedaddy h3 {
-//   font-size: 20px !important;
-//   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-//   text-transform: none;
-//   letter-spacing: 0;
-//   line-height: 1;
-//   font-weight: bold;
-// }

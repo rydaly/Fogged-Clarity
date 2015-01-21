@@ -5,7 +5,7 @@
 .top-bar {
   $top-bar-background: $dark-gray;
   $top-bar-height: 76px;
-  
+
   @include position(fixed, 0 0 null null);
   background-color: $top-bar-background;
 	background: $dark-gray url(../images/footer_bg.png);
@@ -144,7 +144,7 @@ $animation-time: 0.4s;
   #nav-menu-btn {
   	width: 50px;
   	height: 64px;
-    		
+
 		&:hover {
 			.menu-group path {
 				stroke: lighten($medium-gray, 10);
@@ -206,7 +206,7 @@ $animation-time: 0.4s;
   @include align-items(center);
   @include flex-direction(column);
   opacity: 0;
-  visibility: hidden;    
+  visibility: hidden;
   background: rgba( $sliding-menu-background, 0.85 );
   z-index: 999997;
   overflow-y: auto;
@@ -273,7 +273,7 @@ $animation-time: 0.4s;
 
 .search-form {
   z-index: 99;
-  width: 90%;
+  width: 60%;
   position: relative;
   display: inline-block;
   margin: 0.8em;

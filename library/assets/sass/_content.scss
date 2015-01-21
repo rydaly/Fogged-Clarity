@@ -201,7 +201,12 @@ hr.divider {
 // editor's note
 .eds-note {
 	margin: 0 auto;
-	padding: 35px 40px;
+	padding: 35px 0;
+
+	@include media( $medium-screen ) {
+		padding: 35px 40px;
+	}
+
 	.sig {
 		.fc {
 			font-style: italic;
@@ -228,7 +233,7 @@ hr.divider {
 		visibility: visible;
 		opacity: 1;
     @include transition(top $default-anim-time ease-in-out, left $default-anim-time ease-in-out, opacity $default-anim-time ease-in-out $default-anim-time);
-		
+
 		&.hidden {
 			opacity: 0;
 			visibility: hidden;
@@ -388,7 +393,7 @@ h1.entry-title, h1.page-title {
 
 
 
-/* 
+/*
 
 		Modal TOC
 
@@ -497,7 +502,7 @@ h1.entry-title, h1.page-title {
         line-height: 1.6em;
       }
 
-      &.body { 
+      &.body {
         color: $base-font-color;
         line-height: 1.45em;
 

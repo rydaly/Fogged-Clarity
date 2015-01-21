@@ -2,7 +2,7 @@
 
 $header-module-height: 350px;
 
-/* 
+/*
 		Category color bar
  */
 .fc-cat-color {
@@ -30,7 +30,7 @@ $header-module-height: 350px;
   }
 }
 
-/* 
+/*
     Logo and issue name hero
  */
 .hero-main {
@@ -74,7 +74,7 @@ $header-module-height: 350px;
 	}
 }
 
-/* 
+/*
     Featured image rotator hero
  */
 
@@ -87,16 +87,13 @@ $header-module-height: 350px;
   @include media($sm) { // < 768
   	min-height: 293px;
   }
-  // @include media($md) { // >= 768
-  // 	height: 400px;
-  // }
   @include media($hg) { // >= 1140
   	min-height: 464px;
   }
-  
+
   &.loading {
     background: url( ../images/loader_grey.gif ) no-repeat center center;
-    background-size: 32px 32px;
+    background-size: 16px 16px;
   }
 
   /* Customize issuem flex slider */
@@ -323,7 +320,7 @@ $header-module-height: 350px;
         text-transform: none;
         font-weight: 400;
         display: inline-block;
-	      
+
 	      @include media($medium-screen) {
 	      	font-size: 2.2em;
 	      }
@@ -343,7 +340,7 @@ $header-module-height: 350px;
       }
       .featured_slider_teaser {
         display: inline-block;
-        max-width: 60%;
+        max-width: 100%;
       	font-family: $serif;
       	font-style: italic;
       	font-weight: 500;
@@ -351,8 +348,9 @@ $header-module-height: 350px;
       	line-height: 1em;
 				margin-top: 0.5em;
         margin-bottom: 0.95em;
-	      
+				
 	      @include media($medium-screen) {
+					max-width: 60%;
 	      	font-size: 1.1em;
 	      }
 	      @include media($md) {
@@ -386,7 +384,7 @@ $header-module-height: 350px;
 	      }
 
         @include transition(background $default-anim-time ease-in-out);
-        
+
         &:hover {
         	// opacity: 0.85;
           background: $base-accent-color;

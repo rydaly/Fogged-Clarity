@@ -1738,7 +1738,7 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .no-results .page-content .search-form .search-wrap input.search-field:focus, .not-found .page-content .search-form .search-wrap input.search-field:focus { background-color: #ededed; color: #919191; border-color: #a1bf58; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
 
 /* INCLUDES THE LOGO HEADER, IMAGE ROTATOR, CATEGORY COLOR BAR */
-/* 
+/*
 		Category color bar */
 .fc-cat-color { height: 6px; }
 .fc-cat-color.visual-arts, .fc-cat-color.visual-art, .fc-cat-color.art { background-color: #3b95b3; }
@@ -1749,7 +1749,7 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .fc-cat-color.interviews { background-color: #d03f3f; }
 .fc-cat-color.nonfiction, .fc-cat-color.nonfiction-2, .fc-cat-color.polemics { background-color: #7c9fbd; }
 
-/*  Logo and issue name hero */
+/* Logo and issue name hero */
 .hero-main { height: auto; }
 .hero-main .hero-logo img { width: 156px; height: 156px; margin-top: 1.8em; }
 .hero-main .hero-inner { max-width: 100%; margin-left: auto; margin-right: auto; margin: auto; text-align: center; color: #919191; }
@@ -1761,11 +1761,11 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .hero-sm { height: 250px; }
 .hero-sm .hero-logo img { margin-top: 3.2em; }
 
-/*  Featured image rotator hero */
+/* Featured image rotator hero */
 .hero-carousel { padding-bottom: 4em; overflow: hidden; /* Customize issuem flex slider */ }
 @media screen and (min-width: 200px) { .hero-carousel { min-height: 293px; } }
 @media screen and (min-width: 1140px) { .hero-carousel { min-height: 464px; } }
-.hero-carousel.loading { background: url(../images/loader_grey.gif) no-repeat center center; background-size: 32px 32px; }
+.hero-carousel.loading { background: url(../images/loader_grey.gif) no-repeat center center; background-size: 16px 16px; }
 .hero-carousel #issuem-featured-article-slideshowholder .flex-viewport { max-height: 400px; }
 .hero-carousel #issuem-featured-article-slideshowholder .issuem-flexslider { background: transparent; }
 .hero-carousel #issuem-featured-article-slideshowholder .issuem-flexslider .slides img { width: 100%; min-width: 640px; }
@@ -1821,8 +1821,8 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 @media screen and (min-width: 53.75em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_title { font-size: 3em; } }
 @media screen and (min-width: 59.375em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_title { font-size: 3.5em; } }
 @media screen and (min-width: 1140px) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_title { font-size: 4em; } }
-.hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { display: inline-block; max-width: 60%; font-family: "freight-display-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic; font-weight: 500; font-size: 1em; line-height: 1em; margin-top: 0.5em; margin-bottom: 0.95em; }
-@media screen and (min-width: 40em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { font-size: 1.1em; } }
+.hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { display: inline-block; max-width: 100%; font-family: "freight-display-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-style: italic; font-weight: 500; font-size: 1em; line-height: 1em; margin-top: 0.5em; margin-bottom: 0.95em; }
+@media screen and (min-width: 40em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { max-width: 60%; font-size: 1.1em; } }
 @media screen and (min-width: 768px) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { font-size: 1.2em; } }
 @media screen and (min-width: 53.75em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { font-size: 1.3em; } }
 @media screen and (min-width: 59.375em) { .hero-carousel #issuem-featured-article-slideshowholder .flex-caption .featured_slider_teaser { font-size: 1.4em; } }
@@ -1882,7 +1882,7 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .menu-screen { position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; -webkit-transition: all 0.15s ease-out 0s; transition: all 0.15s ease-out 0s; opacity: 0; visibility: hidden; z-index: 999996; }
 .menu-screen.is-visible { opacity: .4; visibility: visible; }
 
-.search-form { z-index: 99; width: 90%; position: relative; display: inline-block; margin: 0.8em; margin-bottom: 1.6em; }
+.search-form { z-index: 99; width: 60%; position: relative; display: inline-block; margin: 0.8em; margin-bottom: 1.6em; }
 @media screen and (min-width: 53.75em) { .search-form { width: 50%; } }
 .search-form input { -moz-box-sizing: border-box; box-sizing: border-box; display: block; }
 .search-form .search-wrap { position: relative; }
@@ -1936,7 +1936,7 @@ div.sharedaddy div.sd-block:after { content: ""; display: table; clear: both; }
 div.sharedaddy div.sd-block .sd-title { display: none; visibility: hidden; }
 div.sharedaddy div.sd-block .sd-content { display: block; }
 div.sharedaddy div.sd-block .sd-content span.sharing-screen-reader-text { display: none; visibility: hidden; }
-div.sharedaddy div.sd-block .sd-content ul { display: block; margin: 0; padding: 0; list-style-type: none; min-width: 440px; }
+div.sharedaddy div.sd-block .sd-content ul { display: block; margin: 0; padding: 0; list-style-type: none; }
 div.sharedaddy div.sd-block .sd-content ul li { display: inline-block; font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-weight: 600; text-transform: uppercase; white-space: nowrap; max-width: 110px; min-width: 100px; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
 div.sharedaddy div.sd-block .sd-content ul li a { color: #919191; font-size: 10px; text-decoration: none; padding: 5px 25px; border-bottom: none !important; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
 div.sharedaddy div.sd-block .sd-content ul li a:hover { color: #a1bf58; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
@@ -2110,7 +2110,8 @@ p a:hover { border-bottom: 1px dotted #a1bf58; color: #a1bf58; }
 
 hr.divider { border: none; width: 100%; height: 15px; background: url(../images/hr.png) no-repeat 0 0; background-position: 50% 50%; background-size: 209px 15px; margin: 0.5em 0 1em 0; }
 
-.eds-note { margin: 0 auto; padding: 35px 40px; }
+.eds-note { margin: 0 auto; padding: 35px 0; }
+@media screen and (min-width: 40em) { .eds-note { padding: 35px 40px; } }
 .eds-note .sig .fc { font-style: italic; }
 .eds-note p.last { margin-bottom: 0; }
 
@@ -2158,7 +2159,7 @@ h1.entry-title, h1.page-title { font-family: "freight-sans-pro", "Helvetica Neue
 @media screen and (min-width: 59.375em) { #poem { white-space: nowrap; } }
 #poem p { font-family: "freight-display-pro", Georgia, Cambria, "Times New Roman", Times, serif; font-size: 1.6em; font-weight: 400; line-height: 1.4em; }
 
-/* 
+/*
 
 		Modal TOC
 
