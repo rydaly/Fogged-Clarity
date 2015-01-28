@@ -307,8 +307,7 @@ hr.divider {
       line-height: 1;
       padding: 2px 4px;
     }
-
-    input:checked + .filter-group-item {
+		input[type=radio]:checked + .filter-group-item {
       background: $filter-group-background-checked;
     	&.all { background: $medium-gray; }
     	&.fc_poetry { background: desaturate($fc-poetry-color, 10); }
@@ -316,7 +315,7 @@ hr.divider {
     	&.fc_fiction { background: desaturate($fc-fiction-color, 10); }
     	&.fc_review { background: desaturate($fc-review-color, 10); }
     	&.fc_music { background: desaturate($fc-music-color, 10); }
-    	&.fc_interview { background: $fc-interview-color; }
+    	&.fc_interview { background: desaturate($fc-interview-color, 10); }
     	&.fc_nonfiction { background: desaturate($fc-nonfiction-color, 10); }
       color: $filter-group-color-checked;
     }

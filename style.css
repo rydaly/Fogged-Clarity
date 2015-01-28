@@ -2132,15 +2132,15 @@ hr.divider { border: none; width: 100%; height: 15px; background: url(../images/
 .filter-group label:hover { background-color: #ededed; -webkit-transition: all 0.35s ease-in-out; transition: all 0.35s ease-in-out; }
 @media screen and (min-width: 53.75em) { .filter-group label { float: left; } }
 .filter-group label .filter-group-item { border-radius: 0; color: #919191; display: inline-block; font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; font-weight: 700; text-transform: uppercase; line-height: 1; padding: 2px 4px; }
-.filter-group label input:checked + .filter-group-item { background: #a1bf58; color: white; }
-.filter-group label input:checked + .filter-group-item.all { background: #919191; }
-.filter-group label input:checked + .filter-group-item.fc_poetry { background: #9cb364; }
-.filter-group label input:checked + .filter-group-item.fc_art { background: #3b95b3; }
-.filter-group label input:checked + .filter-group-item.fc_fiction { background: #6ab3b5; }
-.filter-group label input:checked + .filter-group-item.fc_review { background: #e2ad48; }
-.filter-group label input:checked + .filter-group-item.fc_music { background: #e46c3a; }
-.filter-group label input:checked + .filter-group-item.fc_interview { background: #dc3333; }
-.filter-group label input:checked + .filter-group-item.fc_nonfiction { background: #7c9fbd; }
+.filter-group label input[type=radio]:checked + .filter-group-item { background: #a1bf58; color: white; }
+.filter-group label input[type=radio]:checked + .filter-group-item.all { background: #919191; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_poetry { background: #9cb364; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_art { background: #3b95b3; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_fiction { background: #6ab3b5; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_review { background: #e2ad48; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_music { background: #e46c3a; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_interview { background: #d03f3f; }
+.filter-group label input[type=radio]:checked + .filter-group-item.fc_nonfiction { background: #7c9fbd; }
 
 .entry-header p { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1.5em; font-weight: 400; text-align: center; margin: 0; }
 @media screen and (min-width: 768px) { .entry-header p { font-size: 1.5em; } }

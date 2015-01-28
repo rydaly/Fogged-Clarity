@@ -16,8 +16,6 @@
       return check;
     }
 
-    // console.log(mobilecheck());
-
     /*
         content filtering for current issue
     */
@@ -35,6 +33,11 @@
 
     $('input', $('.filter-group')).each(function () {
       $(this).on('click touchstart', function(e) {
+
+        if( mobilecheck() ) {
+          toggleFilterMenu(e);
+        }
+
         switch($(this).attr('value')) {
           case 'All':
             // show all
@@ -90,12 +93,12 @@
 
     $(filterBtn).on('click touchstart', function(e) {
       toggleFilterMenu(e);
+      e.preventDefault();
     });
 
     function toggleFilterMenu(e) {
       filterGroup.slideToggle(350);
       arrowIcon.toggleClass('fa-rotate-180');
-      e.preventDefault();
     }
 
 
@@ -169,14 +172,14 @@
     function checkScroll( scroll ) {
       var scrollTop = win.scrollTop();
       var offset;
-      if(carouselHero.length > 0) {  
+      if(carouselHero.length > 0) {
         offset = carouselHero.offset().top;
       } else {
         offset = content.offset().top;
       }
       var distance = mainHeroHeight - (offset - scrollTop);
       var percDown = (mainHeroHeight - distance) / mainHeroHeight;
-      
+
       marg = -(win.scrollTop() / scroll.data('speed'));
       scroll.css({ marginBottom: marg, opacity: percDown });
 
@@ -188,7 +191,7 @@
       //   if(!topMenuContainer.hasClass('nav-show')) {
       //     topMenuContainer.addClass('nav-show').removeClass('nav-hide');
       //   }
-      // } 
+      // }
     }
     if( !mobilecheck() && !tabletcheck() ) {
       $('div[data-type="scroll"]').each(function(){
@@ -209,10 +212,10 @@
         responsive legacy videos and object embeds
     */
     $(function() {
-    
+
       var $allVideos = $("iframe[src^='http://player.vimeo.com'], [src^='//player.vimeo.com'], iframe[src^='http://www.youtube.com'], object[type='application/x-shockwave-flash'], object, embed"),
           $fluidEl = $(".entry-content");
-          
+
       $allVideos.each(function() {
         console.log($(this));
         $(this)
@@ -220,21 +223,21 @@
           .attr('data-aspectRatio', this.height / this.width)
           .removeAttr('height')
           .removeAttr('width');
-      
+
       });
-      
+
       $(window).resize(function() {
-      
+
         var newWidth = $fluidEl.width();
         $allVideos.each(function() {
-        
+
           var $el = $(this);
           $el
               .width(newWidth)
               .height(newWidth * $el.attr('data-aspectRatio'));
-        
+
         });
-      
+
       }).resize();
     });
 
