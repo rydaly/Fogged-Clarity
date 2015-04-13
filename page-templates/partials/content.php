@@ -17,18 +17,18 @@
 					$auth_name = $cfs->get('post_author_name');
 
 					// if auth_name field is defined, show auth_name
-					if(isset($auth_name) && $auth_name !== '') {
-						$output = __('By ', 'foggedclarity');
-						$output .= $cfs->get('post_author_name');
-						echo $output;
-					} 
+					// if(isset($auth_name) && $auth_name !== '') {
+					// 	$output = __('By ', 'foggedclarity');
+					// 	$output .= $cfs->get('post_author_name');
+					// 	echo $output;
+					// } 
 					// else show issueM article author
-					else if (get_post_type($post) === "article") {
+					if (get_post_type($post) === "article") {
 						echo __('By ', 'foggedclarity');
-						echo get_the_author();;
+						echo get_the_author();
 					} 
 					// else show nothing
-					else if ($cfs->get('post_author_name') === '') {
+					else {
 						echo '';
 					}
 				?>

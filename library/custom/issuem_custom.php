@@ -459,7 +459,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
       // wp_print_r( get_active_issuem_issue() );
       // wp_print_r( get_term_by( 'slug', $issue, 'issuem_issue' )->description );
       $main_results  = '<header class="entry-header">';
-      $main_results .= '<h1 class="entry-title" itemprop="name">Editors Note</h1>';
+      $main_results .= '<h1 class="entry-title" itemprop="name">Editor&#8217;s Note</h1>';
       $main_results .= '<hr class="divider"></header>';
       $main_results .= '<div class="eds-note">' . get_term_by( 'slug', $issue, 'issuem_issue' )->description . '</div>';
       $main_results .= '<h1 class="entry-title" itemprop="name">Contents</h1>';

@@ -36,3 +36,63 @@ object[type="application/x-shockwave-flash"] {
   height: 335px !important;
   margin: 15px auto 25px auto;
 }
+
+/* QUOTES */
+
+// blockquote {
+//   // font-family: Georgia, serif;
+//   font-size: 1.5em;
+//   // font-weight:lighter;
+//   // font-style:italic;
+//   // line-height:20px;
+//   color: darken($fc-blue1, 30);
+//   width:545px;
+//   margin:10px auto;
+//   text-align:justify;
+//   padding: 0 0 0 5px;
+//   border-left: 1px solid #333;
+// } 
+
+.pullquoteRight {
+  padding: 1em;
+  float: right;
+  width: 100%;
+  margin: 1em 0 1em 1em;
+  font-size: 1.5em;
+  color: darken($fc-blue1, 30);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 1px solid darken($light-gray, 10);
+  border-top: 1px solid darken($light-gray, 10);
+
+  @include media($medium-screen) {
+    width: 50%;
+  }
+
+  @include media($large-screen) {
+    width: 40%;
+  }
+}
+
+.pullquoteLeft {
+  padding: 1em;
+  float: left;
+  width: 100%;
+  margin: 1em 1em 1em 0;
+  font-size: 1.5em;
+  color: darken($fc-blue1, 30);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: uppercase;
+  border-bottom: 1px solid darken($light-gray, 10);
+  border-top: 1px solid darken($light-gray, 10);
+
+  @include media($medium-screen) {
+    width: 50%;
+  }
+
+  @include media($large-screen) {
+    width: 40%;
+  }
+}

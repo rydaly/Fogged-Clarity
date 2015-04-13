@@ -24,8 +24,9 @@
     background-color: $side-image-background-top;
     border-bottom: $side-image-border;
     display: block;
-    min-height: 2em;
+    min-height: 15em;
     padding: 3em;
+    background-position: center center;
 
     @include media($large-screen) {
       @include span-columns(4);

@@ -29,20 +29,21 @@
 					else 
 					{
 						// if auth_name field is defined, show auth_name
-						if(isset($auth_name) && $auth_name !== '') {
-							$output = __('By ', 'fc');
-							$output .= $cfs->get('post_author_name');
-						} 
+						// if(isset($auth_name) && $auth_name !== '') {
+						// 	$output = __('By ', 'fc');
+						// 	$output .= $cfs->get('post_author_name');
+						// } 
 						// else show issueM article author
-						else if (get_post_type($post) === "article") {
+						if (get_post_type($post) === "article") {
 							$output  = __('By ', 'fc');
 							$output .= get_the_author();
 						} 
-						// else show the wordpress author
+						// else show nothing
 						else {
 							// TODO :: add proper authors to legacy posts and uncomment below
-							$output  = __('By ', 'fc');
-							$output .= get_the_author();
+							// $output  = __('By ', 'fc');
+							// $output .= get_the_author();
+							$output = '';
 						}
 					}
 					echo $output;
