@@ -1741,6 +1741,54 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .blog-entry .blog-entry-content a.moretag { outline: none; font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
 .blog-entry .blog-entry-content a.moretag:hover, .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #a1bf58; background: #fafafa; border: 3px solid #a1bf58; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
 
+article.category-interviews .image-holder { background-color: #dc3333; border-bottom: 6px solid #d03f3f; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-interviews .image-holder { border-right: 6px solid #d03f3f; border-bottom: none; } }
+article.category-interviews .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-interviews .blog-entry .blog-entry-content a.moretag:hover, article.category-interviews .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #d03f3f; background: #fafafa; border: 3px solid #d03f3f; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-interviews a:hover { color: #d03f3f; }
+
+article.category-visual-arts .image-holder { background-color: #2f9bbf; border-bottom: 6px solid #3b95b3; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-visual-arts .image-holder { border-right: 6px solid #3b95b3; border-bottom: none; } }
+article.category-visual-arts .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-visual-arts .blog-entry .blog-entry-content a.moretag:hover, article.category-visual-arts .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #3b95b3; background: #fafafa; border: 3px solid #3b95b3; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-visual-arts a:hover { color: #3b95b3; }
+
+article.category-short-fiction .image-holder { background-color: #5FBDC0; border-bottom: 6px solid #6ab3b5; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-short-fiction .image-holder { border-right: 6px solid #6ab3b5; border-bottom: none; } }
+article.category-short-fiction .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-short-fiction .blog-entry .blog-entry-content a.moretag:hover, article.category-short-fiction .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #6ab3b5; background: #fafafa; border: 3px solid #6ab3b5; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-short-fiction a:hover { color: #6ab3b5; }
+
+article.category-reviews .image-holder { background-color: #edb03d; border-bottom: 6px solid #e2ad48; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-reviews .image-holder { border-right: 6px solid #e2ad48; border-bottom: none; } }
+article.category-reviews .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-reviews .blog-entry .blog-entry-content a.moretag:hover, article.category-reviews .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #e2ad48; background: #fafafa; border: 3px solid #e2ad48; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-reviews a:hover { color: #e2ad48; }
+
+article.category-polemics .image-holder, article.category-nonfiction .image-holder { background-color: #72a0c7; border-bottom: 6px solid #7c9fbd; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-polemics .image-holder, article.category-nonfiction .image-holder { border-right: 6px solid #7c9fbd; border-bottom: none; } }
+article.category-polemics .blog-entry .blog-entry-content a.moretag, article.category-nonfiction .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-polemics .blog-entry .blog-entry-content a.moretag:hover, article.category-polemics .blog-entry .blog-entry-content a.moretag:focus, article.category-nonfiction .blog-entry .blog-entry-content a.moretag:hover, article.category-nonfiction .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #7c9fbd; background: #fafafa; border: 3px solid #7c9fbd; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-polemics a:hover, article.category-nonfiction a:hover { color: #7c9fbd; }
+
+article.category-fogged-clarity-sessions .image-holder, article.category-featured-album .image-holder { background-color: #ef672f; border-bottom: 6px solid #e46c3a; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-fogged-clarity-sessions .image-holder, article.category-featured-album .image-holder { border-right: 6px solid #e46c3a; border-bottom: none; } }
+article.category-fogged-clarity-sessions .blog-entry .blog-entry-content a.moretag, article.category-featured-album .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-fogged-clarity-sessions .blog-entry .blog-entry-content a.moretag:hover, article.category-fogged-clarity-sessions .blog-entry .blog-entry-content a.moretag:focus, article.category-featured-album .blog-entry .blog-entry-content a.moretag:hover, article.category-featured-album .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #e46c3a; background: #fafafa; border: 3px solid #e46c3a; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-fogged-clarity-sessions a:hover, article.category-featured-album a:hover { color: #e46c3a; }
+
+article.category-classics .image-holder { background-color: #444448; border-bottom: 6px solid #464646; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-classics .image-holder { border-right: 6px solid #464646; border-bottom: none; } }
+article.category-classics .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-classics .blog-entry .blog-entry-content a.moretag:hover, article.category-classics .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #464646; background: #fafafa; border: 3px solid #464646; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-classics a:hover { color: #464646; }
+
+article.category-editors-blog .image-holder { background-color: #444448; border-bottom: 6px solid #464646; padding: 3em; }
+@media screen and (min-width: 53.75em) { article.category-editors-blog .image-holder { border-right: 6px solid #464646; border-bottom: none; } }
+article.category-editors-blog .blog-entry .blog-entry-content a.moretag { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-size: 1em; text-transform: uppercase; font-weight: 700; color: #919191; line-height: 1.2em; text-align: center; border: 3px solid #919191; display: block; cursor: pointer; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; background-color: transparent; font-size: 0.8em; width: 80px; height: 36px; padding-top: 5px; margin-top: 1em; }
+article.category-editors-blog .blog-entry .blog-entry-content a.moretag:hover, article.category-editors-blog .blog-entry .blog-entry-content a.moretag:focus { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; color: #464646; background: #fafafa; border: 3px solid #464646; border-radius: 0; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+article.category-editors-blog a:hover { color: #464646; }
+
 .no-results .page-content, .not-found .page-content { text-align: center; }
 .no-results .page-content .search-form, .not-found .page-content .search-form { width: 100%; margin: 0; }
 @media screen and (min-width: 53.75em) { .no-results .page-content .search-form, .not-found .page-content .search-form { width: 60%; } }
@@ -1884,9 +1932,26 @@ form.donate-form input[type="image"] { outline: none; width: 100px; margin: 0 au
 .sliding-menu-content.is-visible { opacity: 1; visibility: visible; }
 .sliding-menu-content .menu-main-menu-container { width: 100%; z-index: 99; }
 .sliding-menu-content .js-menu-screen { z-index: 98; cursor: pointer; }
-.sliding-menu-content ul { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 1.6em; padding: 0; list-style-type: none; text-align: center; }
+.sliding-menu-content .menu-item { font-family: "freight-sans-pro", "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif; font-weight: 400; text-transform: uppercase; font-size: 1.6rem; }
 .sliding-menu-content li a { color: white; display: block; padding: 0.8em; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
 .sliding-menu-content li a:hover { background-color: #a1bf58; color: white; -webkit-transition: all 0.1s ease-in-out; transition: all 0.1s ease-in-out; }
+.sliding-menu-content ul { padding: 0; list-style-type: none; text-align: center; }
+.sliding-menu-content ul a[title="category"] { cursor: pointer; }
+.sliding-menu-content ul a[title="category"]:after { content: ""; speak: none; font-style: normal; font-weight: inherit; font-family: 'FontAwesome'; padding-right: 0.5em; font-size: 1em; padding: 0 0 0 0.5em; }
+.sliding-menu-content ul a[title="category"] + .sub-menu { overflow-y: hidden; max-height: 0; padding: 0; margin: 0; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item { font-size: 1.2rem; font-weight: 600; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a { background: rgba(0, 0, 0, 0.25); }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="interviews"]:hover { background: #d03f3f; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="poetry"]:hover { background: #9cb364; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="art"]:hover { background: #3b95b3; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="fiction"]:hover { background: #6ab3b5; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="reviews"]:hover { background: #e2ad48; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="sessions"]:hover { background: #e46c3a; }
+.sliding-menu-content ul a[title="category"] + .sub-menu .menu-item a[title="nonfiction"]:hover { background: #7c9fbd; }
+.sliding-menu-content ul a[title="category"]:focus, .sliding-menu-content ul a[title="category"]:target { outline: none; background: rgba(0, 0, 0, 0.25); cursor: default; }
+.sliding-menu-content ul a[title="category"]:focus:after, .sliding-menu-content ul a[title="category"]:target:after { content: ""; speak: none; font-style: normal; font-weight: inherit; font-family: 'FontAwesome'; padding-right: 0.5em; font-size: 1em; padding: 0 0 0 0.5em; }
+.sliding-menu-content ul a[title="category"]:focus:hover, .sliding-menu-content ul a[title="category"]:target:hover { background: rgba(0, 0, 0, 0.25); }
+.sliding-menu-content ul a[title="category"]:focus + .sub-menu, .sliding-menu-content ul a[title="category"]:target + .sub-menu { max-height: 500px; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out; }
 
 .menu-screen { position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; -webkit-transition: all 0.15s ease-out 0s; transition: all 0.15s ease-out 0s; opacity: 0; visibility: hidden; z-index: 999996; }
 .menu-screen.is-visible { opacity: .4; visibility: visible; }

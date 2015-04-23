@@ -224,37 +224,113 @@ $animation-time: 0.4s;
   	z-index: 98;
 		cursor: pointer;
   }
-  ul {
+  .menu-item {
     font-family: $sans-serif;
     font-weight: 400;
     text-transform: uppercase;
-  	font-size: 1.6em;
-  	padding: 0;
-  	list-style-type: none;
-  	text-align: center;
-  	// &.is-visible {
-  	// 	li {
-    // 		opacity: 1;
-    // 		@include transform(translateY(0));
-  	// 	}
-  	// }
-  }
-  li {
-  	// opacity: 0;
-  	// @include transform(translateY(100px));
-  	// @include stagger-transition-delay(7, 0, 0.1s);
-  	// @include transition(all $animation-time $easing-func);
+    font-size: 1.6rem;
   }
   li a {
     color: $sliding-menu-color;
     display: block;
     padding: 0.8em;
-			@include transition(all 0.1s $easing-func);
+      @include transition(all 0.1s $easing-func);
     &:hover {
       background-color: $sliding-menu-background-hover;
       color: white;
-      // color: $sliding-menu-color-hover;
-			@include transition(all 0.1s $easing-func);
+      @include transition(all 0.1s $easing-func);
+    }
+  }
+  ul {
+  	padding: 0;
+  	list-style-type: none;
+  	text-align: center;
+
+    a[title="category"] {
+      cursor: pointer; 
+      
+      @include icon(after, "\f107") {
+        font-size: 1em;
+        padding: 0 0 0 0.5em;
+      }
+
+      & + .sub-menu {
+        overflow-y: hidden;
+        max-height: 0;
+        padding: 0;
+        margin: 0;
+        @include transition( all 0.2s $easing-func );
+
+        .menu-item {
+          font-size: 1.2rem;
+          font-weight: 600;
+          a {
+            background: transparentize(black, 0.75);
+          }
+
+          & a[title="interviews"] {
+            &:hover {
+              background: desaturate($fc-interview-color, 10);
+            }
+          }
+          
+          & a[title="poetry"] {
+            &:hover {
+              background: desaturate($fc-poetry-color, 10);
+            }
+          }
+          
+          & a[title="art"] {
+            &:hover {
+              background: desaturate($fc-art-color, 10);
+            }
+          }
+          
+          & a[title="fiction"] {
+            &:hover {
+              background: desaturate($fc-fiction-color, 10);
+            }
+          }
+          
+          & a[title="reviews"] {
+            &:hover {
+              background: desaturate($fc-review-color, 10);
+            }
+          }
+          
+          & a[title="sessions"] {
+            &:hover {
+              background: desaturate($fc-music-color, 10);
+            }
+          }
+          
+          & a[title="nonfiction"] {
+            &:hover {
+              background: desaturate($fc-nonfiction-color, 10);
+            }
+          }
+        }
+      }
+
+      &:focus, &:target {
+        outline: none;
+        background: transparentize(black, 0.75);
+        cursor: default;
+      
+        @include icon(after, "\f106") {
+          font-size: 1em;
+          padding: 0 0 0 0.5em;
+        }
+        
+        &:hover {
+          background: transparentize(black, 0.75);
+        }
+
+        & + .sub-menu {
+          max-height: 500px;
+          @include transition( all 0.2s $easing-func );
+        }
+      }
     }
   }
 }

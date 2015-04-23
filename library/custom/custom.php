@@ -168,7 +168,6 @@ function fc_header_top() { ?>
   <nav class="js-menu sliding-menu-content">
     <!-- Menu items -->
     <?php
-      // get_search_form();
       $nav_menu = wp_nav_menu(
         array(
           'items_wrap' => '<ul class="%2$s">%3$s</ul>',

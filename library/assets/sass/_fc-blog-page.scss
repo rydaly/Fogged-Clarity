@@ -11,7 +11,6 @@
   $side-image-background-top: $fc-green;
   $side-image-background-bottom: $fc-green;
   $blog-entry-content-background: $light-gray;
-  // $side-image-border: 1px solid darken(transparentize($side-image-background-bottom, .8), 30);
   $side-image-border: 6px solid darken($side-image-background-bottom, 10);
 
   background: $blog-entry-content-background;

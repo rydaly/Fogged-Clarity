@@ -1,0 +1,231 @@
+article.category-interviews {
+  .image-holder {
+    background-color: $fc-interview-color;
+    border-bottom: 6px solid desaturate($fc-interview-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-interview-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-interview-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-interview-color, 10);
+    }
+  }
+}
+
+article.category-visual-arts {
+  .image-holder {
+    background-color: $fc-art-color;
+    border-bottom: 6px solid desaturate($fc-art-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-art-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-art-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-art-color, 10);
+    }
+  }
+}
+
+article.category-short-fiction {
+  .image-holder {
+    background-color: $fc-fiction-color;
+    border-bottom: 6px solid desaturate($fc-fiction-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-fiction-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-fiction-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-fiction-color, 10);
+    }
+  }
+}
+
+article.category-reviews {
+  .image-holder {
+    background-color: $fc-review-color;
+    border-bottom: 6px solid desaturate($fc-review-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-review-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-review-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-review-color, 10);
+    }
+  }
+}
+
+article.category-polemics, article.category-nonfiction {
+  .image-holder {
+    background-color: $fc-nonfiction-color;
+    border-bottom: 6px solid desaturate($fc-nonfiction-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-nonfiction-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-nonfiction-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-nonfiction-color, 10);
+    }
+  }
+}
+
+article.category-fogged-clarity-sessions, article.category-featured-album {
+  .image-holder {
+    background-color: $fc-music-color;
+    border-bottom: 6px solid desaturate($fc-music-color, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($fc-music-color, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($fc-music-color, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($fc-music-color, 10);
+    }
+  }
+}
+
+article.category-classics {
+  .image-holder {
+    background-color: $dark-gray;
+    border-bottom: 6px solid desaturate($dark-gray, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($dark-gray, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($dark-gray, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($dark-gray, 10);
+    }
+  }
+}
+
+article.category-editors-blog {
+  .image-holder {
+    background-color: $dark-gray;
+    border-bottom: 6px solid desaturate($dark-gray, 10);
+    padding: 3em;
+
+    @include media($large-screen) {
+      border-right: 6px solid desaturate($dark-gray, 10);
+      border-bottom: none;
+    }
+  }
+
+  .blog-entry .blog-entry-content a.moretag {
+    @include fc-button($medium-gray, $medium-gray, lighten($light-gray, 5), desaturate($dark-gray, 10));
+    background-color: transparent;
+    font-size: 0.8em;
+    width: 80px;
+    height: 36px;
+    padding-top: 5px;
+    margin-top: 1em;
+  }
+
+  a {
+    &:hover {
+      color: desaturate($dark-gray, 10);
+    }
+  }
+}
