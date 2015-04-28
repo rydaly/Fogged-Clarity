@@ -95,7 +95,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php foggedclarity_paging_nav(); ?>
+			<?php //foggedclarity_paging_nav(); ?>
 
 		<?php endif; else : ?>
 

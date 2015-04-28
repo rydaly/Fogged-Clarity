@@ -13,7 +13,7 @@
 			<p class="issuem_article_byline">
 				<?php
 					$output = '';
-					$auth_name = $cfs->get('post_author_name');
+					// $auth_name = $cfs->get('post_author_name');
 					
 					// don't show byline on interviews or fc sessions
 					$category = get_the_category()[0]->cat_name;
@@ -28,12 +28,7 @@
 					} 
 					else 
 					{
-						// if auth_name field is defined, show auth_name
-						// if(isset($auth_name) && $auth_name !== '') {
-						// 	$output = __('By ', 'fc');
-						// 	$output .= $cfs->get('post_author_name');
-						// } 
-						// else show issueM article author
+						// show issueM article author
 						if (get_post_type($post) === "article") {
 							$output  = __('By ', 'fc');
 							$output .= get_the_author();

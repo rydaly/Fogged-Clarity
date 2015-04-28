@@ -50,24 +50,6 @@ function foggedclarity_post_nav() {
 			<div class="next_post_link">
 				<?php next_post_link( '%link', _x( '%title <i class="fa fa-arrow-circle-o-right"></i>', 'Next post link', 'foggedclarity' ) ); ?>
 			</div>
-			<?php 
-				// echo( '<a href="#" rel="toc"><span class="meta-nav toc"><i class="fa fa-list-ul"></i> Table of Contents</span></a>' ); 
-				// echo(
-				// 	'<div class="modal">
-				// 	  <label for="modal-1">
-				// 	    <div class="js-btn"><i class="fa fa-list-ul"></i> Current Issue</div>
-				// 	  </label>
-				// 	  <input class="modal-state" id="modal-1" type="checkbox" />
-				// 	  <div class="modal-window">
-				// 	    <div class="modal-inner">
-				// 	      <label class="modal-close" for="modal-1"></label>
-				// 	      <h1 class="entry-title">(Current Issue) Contents</h1>');
-				// 				echo do_shortcode('[issuem_articles]');
-				// 	    echo('</div>
-				// 	  </div>
-				// 	</div>');
-			?>
-
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
 	<?php
@@ -151,16 +133,35 @@ function foggedclarity_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	printf( __( '<span class="byline" itemscope itemtype="http://schema.org/Person"><span itemprop="author" >Posted by %2$s</span></span><span class="posted-on" itemprop="datePublished" > on %1$s</span>', 'foggedclarity' ),
-		sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
-			esc_url( get_permalink() ),
-			$time_string
-		),
-		sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
-		)
-	);
+	if (get_post_type($post) === "article") {
+		$category = get_the_category()[0]->cat_name;
+		// don't show any author info on interviews and sessions
+		if( $category === 'Interviews' || $category === 'Fogged Clarity Sessions' || $category === 'Visual Art' ) { return; }
+		// only show issuem author name for the rest
+		else {
+			printf( __( '<span class="byline" <span itemprop="author" >by %2$s</span></span>', 'foggedclarity' ),
+				sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+					esc_url( get_permalink() ),
+					$time_string
+				),
+				sprintf( '<span class="author vcard">%1$s</span>',
+					esc_html( get_the_author() )
+				)
+			);
+		}
+  }
+  else {
+		printf( __( '<span class="byline" itemscope itemtype="http://schema.org/Person"><span itemprop="author" >Posted by %2$s</span></span><span class="posted-on" itemprop="datePublished" > on %1$s</span>', 'foggedclarity' ),
+			sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
+				esc_url( get_permalink() ),
+				$time_string
+			),
+			sprintf( '<span class="author vcard"><a class="url fn n" href="%1$s">%2$s</a></span>',
+				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
+				esc_html( get_the_author() )
+			)
+		);
+	}
 }
 endif;
 

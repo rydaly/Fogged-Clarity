@@ -1,117 +1,120 @@
 /* = top menu
 ----------------------------------------------- */
 
-// Top bar
-.top-bar {
-  $top-bar-background: $dark-gray;
-  $top-bar-height: 76px;
-
-  @include position(fixed, 0 0 null null);
-  background-color: $top-bar-background;
-	background: $dark-gray url(../images/footer_bg.png);
-  background-size: 400px 400px;
-  font-family: $sans-serif;
-  text-transform: uppercase;
-  font-weight: 700;
-  height: $top-bar-height;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-	margin-top: -76px;
-  overflow: hidden;
-  z-index: 999997;
-  box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.25);
-
-  .bar-logo {
-  	@include position(absolute, 10px 0 0 10px );
-  	width: 200px;
-  	max-height: none;
-  	z-index: 999999;
-
-  	img, p {
-  		margin: 0;
-  		padding: 0;
-  		display: inline-block;
-  		vertical-align: middle;
-  	}
-
-  	p {
-  		font-family: georgia;
-  		text-transform: none;
-			color: $medium-gray;
-			padding-left: 5px;
-  	}
-  }
-
-  .bar-meta {
-		@include position(absolute, 0.5em 0 0 0);
-		width: 100%;
-		font-size: 24px;
-		font-family: $serif;
-
-		h4.bar-issue {
-			font-family: $sans-serif;
-			font-weight: 400;
-			color: $light-gray;
-			text-align: center;
-			text-transform: none;
-			margin: 0.3em auto 0 auto;
-			white-space: nowrap;
-			overflow: hidden;
-		}
-
-		ul.social-links {
-	  	@include position(absolute, 10px 80px null null );
-	  	z-index: 999999;
-			list-style-type: none;
-			padding: 0;
-			margin: 0;
-
-			li {
-				display: inline;
-				font-size: 0.9em;
-        font-family: $sans-serif;
-        font-weight: 600;
-        text-transform: uppercase;
-        padding: 0 0 0 5px;
-
-        a {
-					color: $medium-gray;
-					padding: 5px;
-      		@include transition(all 0.1s $easing-func);
-
-					&:hover {
-						color: $fc-green;
-        		@include transition(all 0.1s $easing-func);
-					}
-
-					&.fb-link:hover {
-        		color: white;
-					}
-
-					&.twitter-link:hover {
-        		color: #55acee;
-					}
-        }
-			}
-		}
-	}
+#wpadminbar {
+  z-index: 9999999999;
 }
+// Top bar
+// .top-bar {
+//   $top-bar-background: $dark-gray;
+//   $top-bar-height: 76px;
+
+//   @include position(fixed, 0 0 null null);
+//   background-color: $top-bar-background;
+// 	background: $dark-gray url(../images/footer_bg.png);
+//   background-size: 400px 400px;
+//   font-family: $sans-serif;
+//   text-transform: uppercase;
+//   font-weight: 700;
+//   height: $top-bar-height;
+//   width: 100%;
+//   opacity: 0;
+//   visibility: hidden;
+// 	margin-top: -76px;
+//   overflow: hidden;
+//   z-index: 999997;
+//   box-shadow: 0 3px 13px 0 rgba(2, 3, 3, 0.25);
+
+//   .bar-logo {
+//   	@include position(absolute, 10px 0 0 10px );
+//   	width: 200px;
+//   	max-height: none;
+//   	z-index: 999999;
+
+//   	img, p {
+//   		margin: 0;
+//   		padding: 0;
+//   		display: inline-block;
+//   		vertical-align: middle;
+//   	}
+
+//   	p {
+//   		font-family: georgia;
+//   		text-transform: none;
+// 			color: $medium-gray;
+// 			padding-left: 5px;
+//   	}
+//   }
+
+//   .bar-meta {
+// 		@include position(absolute, 0.5em 0 0 0);
+// 		width: 100%;
+// 		font-size: 24px;
+// 		font-family: $serif;
+
+// 		h4.bar-issue {
+// 			font-family: $sans-serif;
+// 			font-weight: 400;
+// 			color: $light-gray;
+// 			text-align: center;
+// 			text-transform: none;
+// 			margin: 0.3em auto 0 auto;
+// 			white-space: nowrap;
+// 			overflow: hidden;
+// 		}
+
+// 		ul.social-links {
+// 	  	@include position(absolute, 10px 80px null null );
+// 	  	z-index: 999999;
+// 			list-style-type: none;
+// 			padding: 0;
+// 			margin: 0;
+
+// 			li {
+// 				display: inline;
+// 				font-size: 0.9em;
+//         font-family: $sans-serif;
+//         font-weight: 600;
+//         text-transform: uppercase;
+//         padding: 0 0 0 5px;
+
+//         a {
+// 					color: $medium-gray;
+// 					padding: 5px;
+//       		@include transition(all 0.1s $easing-func);
+
+// 					&:hover {
+// 						color: $fc-green;
+//         		@include transition(all 0.1s $easing-func);
+// 					}
+
+// 					&.fb-link:hover {
+//         		color: white;
+// 					}
+
+// 					&.twitter-link:hover {
+//         		color: #55acee;
+// 					}
+//         }
+// 			}
+// 		}
+// 	}
+// }
 
 // styles for animating the top nav bar on scroll
-.nav-show {
-	visibility: visible;
-	opacity: 1;
-	margin-top: 0;
-	@include transition(all $default-anim-time ease-in-out);
-}
+// .nav-show {
+// 	visibility: visible;
+// 	opacity: 1;
+// 	margin-top: 0;
+// 	@include transition(all $default-anim-time ease-in-out);
+// }
 
-.nav-hide {
-	visibility: hidden;
-	opacity: 0;
-	margin-top: -76px;
-	@include transition(all $default-anim-time ease-in-out);
-}
+// .nav-hide {
+// 	visibility: hidden;
+// 	opacity: 0;
+// 	margin-top: -76px;
+// 	@include transition(all $default-anim-time ease-in-out);
+// }
 
 
 
@@ -202,7 +205,6 @@ $animation-time: 0.4s;
   @include size(100% 100%);
   @include transition(all $animation-time $easing-func);
   @include display(flex);
-  @include justify-content(center);
   @include align-items(center);
   @include flex-direction(column);
   opacity: 0;
@@ -214,6 +216,11 @@ $animation-time: 0.4s;
   &.is-visible {
   		opacity: 1;
   		visibility: visible;
+  }
+
+  .search-form {
+    margin-top: 6em;
+    margin-bottom: 4em;
   }
 
   .menu-main-menu-container {

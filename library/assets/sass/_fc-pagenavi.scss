@@ -16,12 +16,8 @@ nav.navigation {
       display: inline-block;
     }
 
-    span {
-      display: none;
-    }
-
     a {
-      display: none;
+      display: inline-block;
 
       @include media($medium-screen) {
         display: inline-block;
@@ -46,14 +42,6 @@ nav.navigation {
         color: $medium-gray;
       }
 
-      &.previouspostslink {
-        float: left;
-      }
-
-      &.nextpostslink {
-        float: right;
-      }
-
       &.previouspostslink, &.nextpostslink {
         display: inline-block;
         font-family: $sans-serif;
@@ -61,10 +49,6 @@ nav.navigation {
         text-transform: uppercase;
         padding-top: 4px;
         padding-bottom: 4px;
-
-        @include media($medium-screen) {
-          float: none;
-        }
       }
 
       &.pages, &.extend, &.first, &.last {
@@ -78,29 +62,3 @@ nav.navigation {
 .comments-area, .navigation, .post-navigation {
   margin-bottom: 5em;
 }
-
-// .post-navigation {
-//   .nav-links {
-//     width: 100%;
-//     margin: 0 auto;
-//     position: relative;
-//     @include outer-container;
-
-//     a, div.js-btn {
-//       @include span-columns(4);
-//       background: $light-gray;
-//     }
-//     a[rel~="prev"] {
-//       text-align: left;
-//     }
-//     .js-btn {
-//       text-align: center;
-//     }
-//     // a[rel~="toc"] {
-//     //  text-align: center;
-//     // }
-//     a[rel~="next"] {
-//       text-align: right;
-//     }
-//   }
-// }

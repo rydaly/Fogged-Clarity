@@ -111,47 +111,27 @@ add_action( 'tha_header_before', 'fc_header_before' );
 
 
 /**
- * FC header - Top bar, hero, carousel and nav
+ * FC header - hero, carousel and nav
  */
-function fc_header_top() { ?>
-  <header class="top-bar">
-    <div class="top-bar-wrapper">
-      <a class="bar-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>">
-        <img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo_sm.png" width="55" height="55" alt="fc logo">
-        <p class="logo-copy"><?php bloginfo( 'name' ); ?></p>
-      </a>
-      <!-- <i class="fa fa-list-ul"></i> -->
-      <?php
-        $output  = '<div class="bar-meta">';
-        $output .= '<ul class="social-links"><li><a class="fb-link" href="https://www.facebook.com/FoggedClarity" target="_blank" title="Fogged Clarity on Facebook" alt="Fogged Clarity on Facebook"><i class="fa fa-facebook-square"></i></a></li><li><a class="twitter-link" href="https://twitter.com/foggedclarity" target="_blank" title="Fogged Clarity on Twitter" alt="Fogged Clarity on Twitter"><i class="fa fa-twitter-square"></i></a></li></ul>';
-        $output .= '</div>';
-        echo $output;
-      ?>
-    </div>
-  </header>
-
-  <?php
-    if( is_front_page() || get_current_type() === "tax" ) { ?>
-      <div class="hero hero-main" data-speed="1.6" data-type="scroll">
-        <div class="hero-inner">
-          <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
-          <div class="hero-copy">
-            <h1 class="blog-name"><?php bloginfo( 'name' ); ?></h1>
-              <hr class="divider">
-              <h3><?php echo get_term_by( 'slug', $_COOKIE['issuem_issue'], 'issuem_issue' )->name; ?></h3>
-          </div>
+function fc_header_top() {
+  if( is_front_page() || get_current_type() === "tax" ) { ?>
+    <div class="hero hero-main" data-speed="1.6" data-type="scroll">
+      <div class="hero-inner">
+        <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
+        <div class="hero-copy">
+          <h1 class="blog-name"><?php bloginfo( 'name' ); ?></h1>
+            <hr class="divider">
+            <h3><?php echo get_term_by( 'slug', $_COOKIE['issuem_issue'], 'issuem_issue' )->name; ?></h3>
         </div>
       </div>
-  <?php
-    } else { ?>
+    </div>
+  <?php } else { ?>
       <div class="hero hero-main hero-sm" data-speed="1.6" data-type="scroll">
         <div class="hero-inner">
           <a class="hero-logo" href="<?php echo home_url(); ?>" title="<?php bloginfo( 'name' ); ?>"><img src="<?php get_template_directory_uri(); ?>/wp-content/themes/fogged-clarity/dist/images/fc_logo.png" width="156" height="156" alt="fc logo"></a>
         </div>
       </div>
-  <?php
-    }
-  ?>
+  <?php } ?>
  
   <div class="js-menu-trigger sliding-menu-button" title="Main Menu">
     <!-- Look ma, no Snap! -->

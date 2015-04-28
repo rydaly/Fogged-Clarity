@@ -162,7 +162,6 @@ require get_template_directory() . '/library/vendors/template-tags.php';
  */
 require get_template_directory() . '/library/vendors/extras.php';
 
-
 /**
  * Load Jetpack compatibility file.
  */
