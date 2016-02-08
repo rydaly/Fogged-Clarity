@@ -4,7 +4,7 @@
 .powerpress_player {
     @include clearfix;
     width: 100%;
-    margin-bottom: 5em;
+    margin-bottom: 2em;
     outline: none;
     /* replace the controls bar height */
     .mejs-wrapper {
@@ -312,7 +312,7 @@
         margin-left: 10px;
     }
     /* time rail sub-elements */
-    .mejs-controls .mejs-time-rail a {
+    .mejs-controls .mejs-time-rail span {
         /* structure */
         display: block;
         /* theme */
@@ -651,5 +651,59 @@ $highlight-color: $fc-green;
     /* controls buttons */
     .mejs-button button {
         background-image: url(../images/mediaelement/controls-white.png);
+    }
+}
+
+/* Powerpress podcast links and subscribe links */
+.powerpress_links {
+    text-align: center;
+    font-size: 0.9em;
+    margin: 0 0 5em;
+    color: $medium-gray;
+    a {
+        color: $medium-gray;
+        margin: 0 0.5em;
+    }
+    .powerpress_link_pinw {
+      @include icon(before, "\f08e") {
+        font-size: 0.8em;
+      }
+    }
+    .powerpress_link_d {
+      @include icon(before, "\f0ed") {
+        font-size: 0.8em;
+      }
+    }
+    .powerpress_link_e {
+      @include icon(before, "\f121") {
+        font-size: 0.8em;
+      }
+    }
+}
+
+.powerpress_subsribe_links {
+    // margin-bottom: 5em;
+    .powerpress_link_subscribe_itunes {
+      @include icon(before, "\f179") {
+        font-size: 0.8em;
+      }
+    }
+    // since the powerpress idiots didn't give android a proper class
+    // .powerpress_link_subscribe_android {
+    a[title="Subscribe on Android"] {
+      @include icon(before, "\f17b") {
+        font-size: 0.8em;
+      }
+    }
+    .powerpress_link_subscribe_rss {
+      @include icon(before, "\f09e") {
+        font-size: 0.8em;
+      }
+    }
+}
+
+.powerpress_embed_box {
+    input {
+        margin: 0 auto;
     }
 }

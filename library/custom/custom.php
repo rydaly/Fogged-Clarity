@@ -51,7 +51,7 @@ function fc_handle_scripts_and_styles() {
 
   wp_dequeue_style( 'screen' );
   wp_deregister_style( 'screen' );
-  wp_register_script( 'fc_scripts', get_template_directory_uri() . '/dist/scripts/production.min.js', array(), '', false );
+  wp_register_script( 'fc_scripts', get_template_directory_uri() . '/dist/scripts/production.min.js', array('jquery'), '', false );
   wp_enqueue_script( 'fc_scripts' );
 }
 add_action( 'wp_enqueue_scripts', 'fc_handle_scripts_and_styles', 1 );

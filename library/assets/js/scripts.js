@@ -213,7 +213,7 @@
     */
     $(function() {
 
-      var $allVideos = $("iframe[src^='http://player.vimeo.com'], [src^='//player.vimeo.com'], iframe[src^='http://www.youtube.com'], object[type='application/x-shockwave-flash'], object, embed"),
+      var $allVideos = $("iframe[src^='http://player.vimeo.com'], [src^='https://player.vimeo.com'], [src^='//player.vimeo.com'], iframe[src^='http://www.youtube.com'], [src^='https://www.youtube.com'], [src^='https://www.youtube-nocookie.com'], object[type='application/x-shockwave-flash'], object, embed"),
           $fluidEl = $(".entry-content");
 
       $allVideos.each(function() {

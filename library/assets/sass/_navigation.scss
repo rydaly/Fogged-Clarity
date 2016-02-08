@@ -201,7 +201,7 @@ $animation-time: 0.4s;
 }
 
 .sliding-menu-content {
-  @include position(fixed, 0px auto 0px 0px);
+  @include position(fixed, -100% auto 0px 0px);
   @include size(100% 100%);
   @include transition(all $animation-time $easing-func);
   @include display(flex);
@@ -214,6 +214,7 @@ $animation-time: 0.4s;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   &.is-visible {
+      top: 0px;
   		opacity: 1;
   		visibility: visible;
   }
