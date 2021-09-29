@@ -548,7 +548,7 @@
 	
 	===============================
 
-	Adapted from: http://www.delphiki.com/html5/playr
+	Adapted from: https://www.delphiki.com/html5/playr
 	*/
 	mejs.TrackFormatParser = {
 		webvvt: {

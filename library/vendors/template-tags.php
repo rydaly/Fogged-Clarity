@@ -151,7 +151,7 @@ function foggedclarity_posted_on() {
 		}
   }
   else {
-		printf( __( '<span class="byline" itemscope itemtype="http://schema.org/Person"><span itemprop="author" >Posted by %2$s</span></span><span class="posted-on" itemprop="datePublished" > on %1$s</span>', 'foggedclarity' ),
+		printf( __( '<span class="byline" itemscope itemtype="https://schema.org/Person"><span itemprop="author" >Posted by %2$s</span></span><span class="posted-on" itemprop="datePublished" > on %1$s</span>', 'foggedclarity' ),
 			sprintf( '<a href="%1$s" rel="bookmark">%2$s</a>',
 				esc_url( get_permalink() ),
 				$time_string

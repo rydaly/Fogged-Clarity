@@ -665,7 +665,7 @@ if ( !function_exists( 'do_custom_issuem_articles' ) ) {
       }
       
       if ( get_option( 'issuem_api_error_received' ) )
-        $results .= '<div class="api_error"><p><a href="http://issuem.com/" target="_blank">' . __( 'Issue Management by ', 'issuem' ) . 'IssueM</a></div>';
+        $results .= '<div class="api_error"><p><a href="https://issuem.com/" target="_blank">' . __( 'Issue Management by ', 'issuem' ) . 'IssueM</a></div>';
     
       $post = $old_post;
   
@@ -1032,7 +1032,7 @@ if ( !function_exists( 'do_custom_issuem_archives' ) ) {
     }
     
     if ( get_option( 'issuem_api_error_received' ) )
-      $results .= '<div class="api_error"><p><a href="http://issuem.com/" target="_blank">' . __( 'Issue Management by ', 'issuem' ) . 'IssueM</a></div>';
+      $results .= '<div class="api_error"><p><a href="https://issuem.com/" target="_blank">' . __( 'Issue Management by ', 'issuem' ) . 'IssueM</a></div>';
       
     $results .= '</div>';
     

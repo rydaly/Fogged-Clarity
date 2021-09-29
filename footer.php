@@ -11,7 +11,7 @@
 		</div><!-- end #content -->
 		<?php tha_content_after(); ?>
  		<?php tha_footer_before(); ?>
-		<footer id="colophon" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
+		<footer id="colophon" class="site-footer" role="contentinfo" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
 			<?php tha_footer_top(); ?>
 			<?php wp_footer(); ?>
 			<div class="site-info">
@@ -20,7 +20,7 @@
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('fc_footer_center') ) : endif; ?>
 				<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('fc_footer_right') ) : endif; ?>
 				
-				<!-- <a href="http://wordpress.org/" rel="generator"><?php //printf( __( 'Proudly powered by <span class="genericon genericon-wordpress"></span> %s', 'foggedclarity' ), 'WordPress' ); ?></a>
+				<!-- <a href="https://wordpress.org/" rel="generator"><?php //printf( __( 'Proudly powered by <span class="genericon genericon-wordpress"></span> %s', 'foggedclarity' ), 'WordPress' ); ?></a>
 				<span class="sep"> | </span> -->
 
 			</div><!-- end .site-info -->

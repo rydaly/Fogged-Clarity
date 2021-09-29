@@ -215,7 +215,7 @@ function shoestrap_customizer_config() {
         // If you want to take advantage of the backround control's 'output',
         // then you'll have to specify the ID of your stylesheet here.
         // The "ID" of your stylesheet is its "handle" on the wp_enqueue_style() function.
-        // http://codex.wordpress.org/Function_Reference/wp_enqueue_style
+        // https://codex.wordpress.org/Function_Reference/wp_enqueue_style
         'stylesheet_id' => 'shoestrap'
 
     );

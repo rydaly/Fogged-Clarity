@@ -4,7 +4,7 @@
  */
 ?>
 <?php tha_entry_before(); ?>
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemType="http://schema.org/BlogPosting">
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemscope itemType="https://schema.org/BlogPosting">
 	<?php tha_entry_top(); ?>
 	<header class="entry-header">
 		<h1 class="entry-title" itemprop="name" ><?php the_title(); ?></h1>

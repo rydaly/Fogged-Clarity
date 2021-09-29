@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     minifycss = require('gulp-minify-css'),
     jshint = require('gulp-jshint'),
     uglify = require('gulp-uglify'),
-    imagemin = require('gulp-imagemin'),
+    // imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     clean = require('gulp-clean'),
     concat = require('gulp-concat'),
@@ -41,12 +41,12 @@ gulp.task('scripts', function() {
 });
 
 // Images
-gulp.task('images', function() {
-  return gulp.src('images/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe(notify({ message: 'Images task complete' }));
-});
+// gulp.task('images', function() {
+//   return gulp.src('images/**/*')
+//     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+//     .pipe(gulp.dest('dist/images'))
+//     .pipe(notify({ message: 'Images task complete' }));
+// });
 
 // Clean
 gulp.task('clean', function() {
@@ -56,7 +56,8 @@ gulp.task('clean', function() {
 
 // Default task
 gulp.task('default', ['clean'], function() {
-    gulp.start('styles', 'scripts', 'images');
+    // gulp.start('styles', 'scripts', 'images');
+    gulp.start('styles', 'scripts');
 });
 
 // Watch
@@ -69,7 +70,7 @@ gulp.task('watch', function() {
   gulp.watch('library/assets/js/**/*.js', ['scripts']);
 
   // Watch image files
-  gulp.watch('src/images/**/*', ['images']);
+  // gulp.watch('src/images/**/*', ['images']);
 
   // Create LiveReload server
   // var server = livereload();

@@ -16,24 +16,24 @@ function fc_wp_head() { ?>
   </script>
 
   <!-- favicons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="http://foggedclarity.com/icons/apple-touch-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="http://foggedclarity.com/icons/apple-touch-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="http://foggedclarity.com/icons/apple-touch-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="http://foggedclarity.com/icons/apple-touch-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="http://foggedclarity.com/icons/apple-touch-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="http://foggedclarity.com/icons/apple-touch-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="http://foggedclarity.com/icons/apple-touch-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="http://foggedclarity.com/icons/apple-touch-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="http://foggedclarity.com/icons/apple-touch-icon-180x180.png">
-  <link rel="shortcut icon" href="http://foggedclarity.com/icons/favicon.ico">
-  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-192x192.png" sizes="192x192">
-  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-160x160.png" sizes="160x160">
-  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-16x16.png" sizes="16x16">
-  <link rel="icon" type="image/png" href="http://foggedclarity.com/icons/favicon-32x32.png" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="57x57" href="https://foggedclarity.com/icons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="https://foggedclarity.com/icons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://foggedclarity.com/icons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="https://foggedclarity.com/icons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="https://foggedclarity.com/icons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="https://foggedclarity.com/icons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://foggedclarity.com/icons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="https://foggedclarity.com/icons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://foggedclarity.com/icons/apple-touch-icon-180x180.png">
+  <link rel="shortcut icon" href="https://foggedclarity.com/icons/favicon.ico">
+  <link rel="icon" type="image/png" href="https://foggedclarity.com/icons/favicon-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="https://foggedclarity.com/icons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="https://foggedclarity.com/icons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="https://foggedclarity.com/icons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="https://foggedclarity.com/icons/favicon-32x32.png" sizes="32x32">
   <meta name="msapplication-TileColor" content="#2b5797">
-  <meta name="msapplication-TileImage" content="http://foggedclarity.com/icons/mstile-144x144.png">
-  <meta name="msapplication-config" content="http://foggedclarity.com/icons/browserconfig.xml">
+  <meta name="msapplication-TileImage" content="https://foggedclarity.com/icons/mstile-144x144.png">
+  <meta name="msapplication-config" content="https://foggedclarity.com/icons/browserconfig.xml">
 <?php }
 
 add_action( 'wp_head', 'fc_wp_head' );
@@ -41,7 +41,7 @@ add_action( 'wp_head', 'fc_wp_head' );
 
 
 /**
- * Scripts and Styles 
+ * Scripts and Styles
  */
 function fc_handle_scripts_and_styles() {
   wp_dequeue_style('mediaelement');
@@ -98,7 +98,7 @@ foreach ( $filters as $filter ) {
 function fc_header_before() {
   if(is_single()) {
     $output = '';
-    
+
     global $post;
     $cat = get_the_category( $post->id )[0]->slug;
 
@@ -132,10 +132,10 @@ function fc_header_top() {
         </div>
       </div>
   <?php } ?>
- 
+
   <div class="js-menu-trigger sliding-menu-button" title="Main Menu">
     <!-- Look ma, no Snap! -->
-    <svg version="1.1" id="nav-menu-btn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 60 64" xml:space="preserve">
+    <svg version="1.1" id="nav-menu-btn" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 60 64" xml:space="preserve">
       <g class="menu-group">
         <g class="top-group"><path class="top" fill="none" stroke="#555" stroke-width="2" stroke-linejoin="bevel" d="M0,19h60"/></g>
         <g class="mid-group"><path class="mid" fill="none" stroke="#555" stroke-width="2" stroke-linejoin="bevel" d="M0,32H109" stroke-dasharray="61 61" stroke-dashoffset="0"/></g>
@@ -236,7 +236,7 @@ add_action( 'tha_footer_after', 'fc_footer_after' );
  */
 function disqus_embed($disqus_shortname) {
   global $post;
-  wp_enqueue_script('disqus_embed','http://'.$disqus_shortname.'.disqus.com/embed.js');
+  wp_enqueue_script('disqus_embed','https://'.$disqus_shortname.'.disqus.com/embed.js');
   echo '<div id="disqus_thread"></div>
   <script type="text/javascript">
     var disqus_shortname = "'.$disqus_shortname.'";
@@ -250,27 +250,27 @@ function disqus_embed($disqus_shortname) {
 
 /**
  * Remove default Jetpack sharing buttons ( adding to tha_entry_bottom )
- * Add sharedaddy scripts manually 
+ * Add sharedaddy scripts manually
  */
-function jetpack_remove_share() {
-  remove_filter( 'the_content', 'sharing_display', 19 );
-  remove_filter( 'the_excerpt', 'sharing_display', 19 );
-  if ( class_exists( 'Jetpack_Likes' ) ) {
-      remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
-  }
-}
-add_action( 'loop_start', 'jetpack_remove_share' );
+// function jetpack_remove_share() {
+//   remove_filter( 'the_content', 'sharing_display', 19 );
+//   remove_filter( 'the_excerpt', 'sharing_display', 19 );
+//   if ( class_exists( 'Jetpack_Likes' ) ) {
+//       remove_filter( 'the_content', array( Jetpack_Likes::init(), 'post_likes' ), 30, 1 );
+//   }
+// }
+// add_action( 'loop_start', 'jetpack_remove_share' );
 
 // get jetpack sharedaddy scripts manually
-function fc_add_sharedaddy() {
-  wp_enqueue_script( 'sharing-js', WP_SHARING_PLUGIN_URL . 'sharing.js', array( ), 3 );
-  $sharing_js_options = array(
-    // 'lang'   => get_base_recaptcha_lang_code(),
-    'counts' => apply_filters( 'jetpack_sharing_counts', true )
-  );
-  wp_localize_script( 'sharing-js', 'sharing_js_options', $sharing_js_options);
-}
-add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
+// function fc_add_sharedaddy() {
+//   wp_enqueue_script( 'sharing-js', WP_SHARING_PLUGIN_URL . 'sharing.js', array( ), 3 );
+//   $sharing_js_options = array(
+//     // 'lang'   => get_base_recaptcha_lang_code(),
+//     'counts' => apply_filters( 'jetpack_sharing_counts', true )
+//   );
+//   wp_localize_script( 'sharing-js', 'sharing_js_options', $sharing_js_options);
+// }
+// add_action( 'wp_enqueue_scripts', 'fc_add_sharedaddy' );
 
 
 
@@ -379,23 +379,23 @@ function custom_login_css() {
 add_action('login_head', 'custom_login_css');
 
 // custom login logo link
-function change_wp_login_url() 
+function change_wp_login_url()
 {
   return get_home_url();
 }
 add_filter('login_headerurl', 'change_wp_login_url');
- 
+
 // custom logo alt text
-function change_wp_login_title() 
+function change_wp_login_title()
 {
   return get_option('blogname');
 }
 add_filter('login_headertitle', 'change_wp_login_title');
 
 // custom dashboard footer
-function remove_footer_admin () 
+function remove_footer_admin ()
 {
-  echo '<span id="footer-thankyou">Designed & Developed by <a href="http://rydaly.com" target="_blank">Ryan Daly</a> | Powered by <a href="http://www.wordpress.org" target="_blank">WordPress</a></span>';
+  echo '<span id="footer-thankyou">Designed & Developed by <a href="https://rydaly.com" target="_blank">Ryan Daly</a> | Powered by <a href="https://www.wordpress.org" target="_blank">WordPress</a></span>';
 }
 add_filter('admin_footer_text', 'remove_footer_admin');
 
@@ -439,7 +439,7 @@ add_action('admin_head', 'fc_hide_admin_nags');
 // }
 
 // // remove wp upgrade notification
-// function fc_hide_update_notification() {  
+// function fc_hide_update_notification() {
 //   remove_action('admin_notices', 'update_nag', 3);
 // }
 
@@ -449,7 +449,7 @@ add_action('admin_head', 'fc_hide_admin_nags');
 //     // remove_menu_page( 'jetpack' );
 //     remove_menu_page( 'wpcf7' ); // Contact Form 7
 //     remove_menu_page( 'edit.php?post_type=cfs' ); // Custom Field Suite
-    
+
 //     global $menu;
 //     $restricted = array(__('Media', 'foggedclarity'), __('Appearance', 'foggedclarity'), __('Plugins', 'foggedclarity'), __('Tools', 'foggedclarity'), __('Settings', 'foggedclarity'), __('Roles', 'foggedclarity'), __('Links', 'foggedclarity'), __('Comments', 'foggedclarity'));
 //     end ($menu);

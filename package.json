@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "gulp": "^4.0.2",
     "gulp-autoprefixer": "0.0.8",
     "gulp-cache": "^0.2.0",
     "gulp-clean": "^0.3.1",
@@ -11,6 +12,7 @@
     "gulp-notify": "^1.4.1",
     "gulp-rename": "^1.2.0",
     "gulp-ruby-sass": "^0.7.1",
+    "gulp-sourcemaps": "^3.0.0",
     "gulp-uglify": "^0.3.1"
   },
   "engines": {

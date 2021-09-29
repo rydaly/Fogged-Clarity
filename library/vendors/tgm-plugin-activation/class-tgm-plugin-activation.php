@@ -7,7 +7,7 @@
  * @author    Thomas Griffin <thomasgriffinmedia.com>
  * @author    Gary Jones <gamajo.com>
  * @copyright Copyright (c) 2012, Thomas Griffin
- * @license   http://opensource.org/licenses/gpl-2.0.php GPL v2 or later
+ * @license   https://opensource.org/licenses/gpl-2.0.php GPL v2 or later
  * @link      https://github.com/thomasgriffin/TGM-Plugin-Activation
  */
 
@@ -472,7 +472,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                     }
                 }
 
-                // Set type, based on whether the source starts with http:// or https://.
+                // Set type, based on whether the source starts with https:// or https://.
                 $type = preg_match( '|^http(s)?://|', $plugin['source'] ) ? 'web' : 'upload';
 
                 // Prep variables for Plugin_Installer_Skin class.
@@ -693,7 +693,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
                         if ( $external_url && preg_match( '|^http(s)?://|', $external_url ) ) {
                             $linked_plugin_groups[] = '<a href="' . esc_url( $external_url ) . '" title="' . $plugin_group_single_name . '" target="_blank">' . $plugin_group_single_name . '</a>';
                         }
-                        elseif ( ! $source || preg_match( '|^http://wordpress.org/extend/plugins/|', $source ) ) {
+                        elseif ( ! $source || preg_match( '|^https://wordpress.org/extend/plugins/|', $source ) ) {
                             $url = add_query_arg(
                                 array(
                                     'tab'       => 'plugin-information',
@@ -1141,7 +1141,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
                 if ( $external_url && preg_match( '|^http(s)?://|', $external_url ) ) {
                     $table_data[$i]['plugin'] = '<strong><a href="' . esc_url( $external_url ) . '" title="' . $plugin['name'] . '" target="_blank">' . $plugin['name'] . '</a></strong>';
                 }
-                elseif ( ! $source || preg_match( '|^http://wordpress.org/extend/plugins/|', $source ) ) {
+                elseif ( ! $source || preg_match( '|^https://wordpress.org/extend/plugins/|', $source ) ) {
                     $url = add_query_arg(
                         array(
                             'tab'       => 'plugin-information',
